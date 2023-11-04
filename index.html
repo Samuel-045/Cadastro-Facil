@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <img src="img/icon.png" alt="logo" title="logo">
+        <h1>Cadastro de clientes</h1>
+        <div class="apoio"><span>.</span></div>
+    </header>
+
+    <main>
+        <form>
+            <div class="caixaSup">
+                
+                <div class="esq">
+                    <div class="campo">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome" autocomplete="off">
+                    </div>
+                    
+                    <div class="campo">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input type="text" id="sobrenome" placeholder="Digite seu sobrenome" autocomplete="off">
+                    </div>
+
+                    
+                    <div class="campo">
+                        <label for="dataNasc">Data de nascimento:</label>
+                        <input type="date" id="dataNasc" autocomplete="off">
+                    </div>
+
+    
+                    <div class="campo">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" placeholder="Digite o nome da sua cidade" autocomplete="off">
+                    </div>
+    
+                    <div class="campo">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" maxlength="10" placeholder="00000-000" autocomplete="off">
+                    </div>
+    
+                    <div class="moradia">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" placeholder="Digite seu endereço" autocomplete="off">
+    
+                        <label for="numero">N#:</label>
+                        <input type="text"  class="numero" id="numero" placeholder="Nº da casa" autocomplete="off">
+                    </div>
+                </div>
+    
+                <div class="dir">
+                    <label for="clientes">Tipos de clientes</label>
+                    <select id="clientes">                
+                        <option value="1">Bronze</option>
+                        <option value="1">Prata</option>
+                        <option value="1">Ouro</option>
+                        <option value="1">Platina</option>
+                        <option value="1">Diamante</option>
+                    </select>
+                </div>
+            
+            </div>
+
+            <div class="inferior">
+                <button id="incluir">Incluir</button>
+                <button id="cadastrar">Confirmar</button>
+                <button id="limpar">Limpar</button>
+            </div>
+
+        </form>
+    </main>
+
+    <article>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>UF</th>
+                    <th>Endereço</th>
+                    <th>Ação</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+    </article>
+
+    <script src="js/vida.js"></script>
+</body>
+</html>
