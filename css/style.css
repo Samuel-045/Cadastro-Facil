@@ -26,6 +26,7 @@ main form {
 
 main form label,
 main form button,
+main form .dir span,
 article table{
     font-family:'Courier New', Courier, monospace;
 }
@@ -38,15 +39,16 @@ main form .caixaSup{
 main form .caixaSup .dir,
 main form .caixaSup .dir label,
 main form .caixaSup .esq,
-main form .caixaSup .esq .campo,
-main form .caixaSup .esq .campo label,
+main form .caixaSup .esq .caixa,
+main form .caixaSup .esq .caixa label,
 main form .caixaSup .esq .moradia,
-main form .caixaSup .esq .moradia label{
+main form .caixaSup .esq .moradia label,
+main form .dir span *{
     background: rgb(180, 180, 180);
 }
 
 main form .caixaSup .dir, 
-main form .caixaSup .esq .campo,
+main form .caixaSup .esq .caixa,
 main form .caixaSup .esq .moradia{
     padding: 15px;
 }
