@@ -77,13 +77,27 @@ document.getElementById("cadastrar").addEventListener('click', event =>{
     cadastrar();
 })
 
+function deletar(index) {
+    const del = respGet()
+    del.splice(index,1)
+    localStorage.clear()
+    vetor = respGet()
+
+    for(var i = 0; i<del.length; i++){
+        vetor.push(del[i])
+    }
+
+    respSet(vetor)
+    tabela()
+}
+
 const editDelete = (event) =>{
     const [acao , indice] = event.target.id.split('-')
 
-    if(acao=='edit'){
-        
+    if(acao=='Editar'){
+        editar(indice)
     }else{
-
+        deletar(indice)
     }
 }
 
