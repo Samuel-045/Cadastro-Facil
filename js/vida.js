@@ -1,11 +1,11 @@
-function limpar(){
+function limparCampos(){
     campos = document.querySelectorAll('.campo')
     campos.forEach(campos => campos.value='')
 }
 
 document.getElementById('limpar').addEventListener('click', event => {
     event.preventDefault()
-    limpar()
+    limparCampos()
 })
 
 const respGet = () => JSON.parse(localStorage.getItem('registro')) ?? []
@@ -36,19 +36,58 @@ function cadastrar() {
         const vetor = respGet()
         vetor.push(obj)
         respSet(vetor)
-        limpar()
+        limparCampos()
+        tabela()
         document.getElementById("retorno").innerHTML = '<br><br> <p>Cadastro realizado!</p>'+nome
+
     }
 }
 
+//constante usada para resgatar os dados no banco
 const bdCliente = () => localStorage.length==0 ? [] : JSON.parse(localStorage.getItem("registro"))
 
+const criarLinha = (client,index) => {
+    const estrutura = document.createElement('tr')
+    estrutura.innerHTML=`
+        <td class="centro">${client.Obnome}</td>
+        <td class="centro">${client.Obdatanascimento}</td>
+        <td class="centro">${client.Obcidade}</td>
+        <td class="centro">${client.Obendereco}</td>
+        <td class="imgs" id="imgs">
+            <img src="../img/editar.png" id="Editar-${index}" title="Editar" alt="Editar">
+            <img src="../img/bin.png" id="Excluir-${index}" title="Excluir" alt="Excluir">    
+        </td>
+        `
+    document.querySelector("#table>tbody").appendChild(estrutura)
+}
+const desfazerLinha = () => {
+    const linhas = document.querySelectorAll("#table>tbody tr")
+    linhas.forEach(linha => linha.parentNode.removeChild(linha))
+}
 
 function tabela(){
-    const tab = () => bdCliente()
+    const tab = bdCliente()
+    desfazerLinha()
+    tab.forEach(criarLinha)
 }
+tabela()
 
 document.getElementById("cadastrar").addEventListener('click', event =>{
     event.preventDefault();
     cadastrar();
+})
+
+const editDelete = (event) =>{
+    const [acao , indice] = event.target.id.split('-')
+
+    if(acao=='edit'){
+        
+    }else{
+
+    }
+}
+
+const linhaEvento = document.querySelectorAll("#table tbody tr")
+linhaEvento.forEach(linha => {
+    linha.addEventListener('click', editDelete)
 })

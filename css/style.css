@@ -102,3 +102,19 @@ table th{
     letter-spacing: 1.5px;
     font-weight: bold;
 }
+
+body table td{
+    padding: 15px 0;
+}
+
+body table img{
+    max-width: 20px;
+}
+
+body table .imgs{  
+    text-align: center;
+}
+
+body .centro{
+    text-align: center;
+}
