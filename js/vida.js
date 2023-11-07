@@ -38,6 +38,7 @@ function cadastrar() {
         respSet(vetor)
         limparCampos()
         tabela()
+        acao()
         document.getElementById("retorno").innerHTML = '<br><br> <p>Cadastro realizado!</p>'+nome
 
     }
@@ -89,19 +90,69 @@ function deletar(index) {
 
     respSet(vetor)
     tabela()
+    acao()
 }
 
-const editDelete = (event) =>{
+function preencheCampos(index){
+    const cliente = bdCliente()[index]  
+
+    document.getElementById('nome').value = cliente.Obnome
+    document.getElementById('sobrenome').value = cliente.Obsobrenome
+    document.getElementById('dataNasc').value = cliente.Obdatanascimento
+    document.getElementById('cidade').value = cliente.Obcidade
+    document.getElementById('cep').value = cliente.Obcep
+    document.getElementById('endereco').value = cliente.Obendereco
+    document.getElementById('numero').value = cliente.Obnumero
+
+    
+    document.getElementById("atualizar").addEventListener('click', event=>{
+        event.preventDefault()
+        atualizar(index)
+    })
+}
+function atualizar(index){
+    const edit = bdCliente()
+    
+    let nome = document.getElementById('nome').value
+    let sobrenome = document.getElementById('sobrenome').value 
+    let dataNasc = document.getElementById('dataNasc').value 
+    let cidade = document.getElementById('cidade').value
+    let cep = document.getElementById('cep').value 
+    let endereco = document.getElementById('endereco').value
+    let numero = document.getElementById('numero').value 
+    
+    let objNovo = {
+        Obnome : nome,
+        Obsobrenome : sobrenome,
+        Obdatanascimento : dataNasc,
+        Obcidade : cidade,
+        Obcep : cep,
+        Obendereco : endereco,
+        Obnumero : numero
+    }
+   
+    edit[index] = objNovo
+    
+    respSet(edit)
+    limparCampos()
+    tabela()
+    
+}
+
+const editDelete = (event) =>{//Função que vai receber o id e discernir qual ação será seguida
     const [acao , indice] = event.target.id.split('-')
 
     if(acao=='Editar'){
-        editar(indice)
+        preencheCampos(indice)
     }else{
         deletar(indice)
     }
 }
 
-const linhaEvento = document.querySelectorAll("#table tbody tr")
-linhaEvento.forEach(linha => {
-    linha.addEventListener('click', editDelete)
-})
+function acao(){//Função que roda a tabela e adiciona os eventos de click
+    const linhaEvento = document.querySelectorAll("#table tbody tr img")
+    linhaEvento.forEach(linha => {
+        linha.addEventListener('click', editDelete)
+    })
+}
+acao()
