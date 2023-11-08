@@ -1,6 +1,8 @@
 function limparCampos(){
     campos = document.querySelectorAll('.campo')
     campos.forEach(campos => campos.value='')
+    document.getElementById("cadastrar").disabled = false
+    document .getElementById("atualizar").disabled = true
 }
 
 document.getElementById('limpar').addEventListener('click', event => {
@@ -70,8 +72,8 @@ function tabela(){
     const tab = bdCliente()
     desfazerLinha()
     tab.forEach(criarLinha)
+    acao()
 }
-tabela()
 
 document.getElementById("cadastrar").addEventListener('click', event =>{
     event.preventDefault();
@@ -103,7 +105,6 @@ function preencheCampos(index){
     document.getElementById('cep').value = cliente.Obcep
     document.getElementById('endereco').value = cliente.Obendereco
     document.getElementById('numero').value = cliente.Obnumero
-
     
     document.getElementById("atualizar").addEventListener('click', event=>{
         event.preventDefault()
@@ -132,11 +133,11 @@ function atualizar(index){
     }
    
     edit[index] = objNovo
-    
     respSet(edit)
     limparCampos()
     tabela()
-    
+    document.getElementById("cadastrar").disabled = false
+    document.getElementById("atualizar").disabled = true
 }
 
 const editDelete = (event) =>{//Função que vai receber o id e discernir qual ação será seguida
@@ -144,6 +145,8 @@ const editDelete = (event) =>{//Função que vai receber o id e discernir qual a
 
     if(acao=='Editar'){
         preencheCampos(indice)
+        document.getElementById("cadastrar").disabled = true
+        document.getElementById("atualizar").disabled = false
     }else{
         deletar(indice)
     }
@@ -155,4 +158,5 @@ function acao(){//Função que roda a tabela e adiciona os eventos de click
         linha.addEventListener('click', editDelete)
     })
 }
-acao()
+tabela()
+document.getElementById("atualizar").disabled = true
