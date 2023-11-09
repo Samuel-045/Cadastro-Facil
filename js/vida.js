@@ -1,3 +1,6 @@
+document.getElementById("atualizar").disabled = true
+document.getElementById("endereco").disabled = true
+
 function limparCampos(){
     campos = document.querySelectorAll('.campo')
     campos.forEach(campos => campos.value='')
@@ -12,59 +15,73 @@ document.getElementById('limpar').addEventListener('click', event => {
 
 const respGet = () => JSON.parse(localStorage.getItem('registro')) ?? []
 const respSet = (obj) => localStorage.setItem('registro',JSON.stringify(obj));
-function cadastrar() {
-    var cont = 0
+async function cadastrar() {
     let nome = document.getElementById('nome').value.trim()
     let sobrenome = document.getElementById('sobrenome').value.trim()
     let dataNasc = document.getElementById('dataNasc').value.trim()
     let cidade = document.getElementById('cidade').value.trim()
     let cep = document.getElementById('cep').value.trim()
-    let endereco = document.getElementById('endereco').value.trim()
     let numero = document.getElementById('numero').value.trim()
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    console.log(condNome)
-    console.log(condSobre)
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
 
     const RxCity = /[\W{ã,â,á,à,ú,ù,ó,ô,õ,ç,é,è}]/
     let condCity = RxCity.test(cidade)
-    console.log(condCity)
 
-    const Rxcep = /(\d{5})[-]{1}?(\d{3})/
+    const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
-    console.log(condCep)
 
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
-    console.log(condNum)
 
     if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
-        cont++;
-        obj = {
-            Obnome: nome,
-            Obsobrenome: sobrenome,
-            Obdatanascimento: dataNasc,
-            Obcidade: cidade,
-            Obcep: cep,
-            Obendereco: endereco,
-            Obnumero: numero
-        }
-        const vetor = respGet()
-        vetor.push(obj)
-        respSet(vetor)
-        limparCampos()
-        tabela()
-        acao()
-        document.getElementById("retorno").innerHTML = '<br><br> <p>Cadastro realizado!</p>'+nome
+        var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
+        var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
 
+        if(retorno != 'erro'){
+            document.getElementById("retorno").innerHTML = ''
+            obj = {
+                Obnome: nome,
+                Obsobrenome: sobrenome,
+                Obdatanascimento: dataNasc,
+                Obcidade: cidade,
+                Obcep: cep,
+                Obendereco: retorno,
+                Obnumero: numero
+            }
+            const vetor = respGet()
+            vetor.push(obj)
+            respSet(vetor)
+            limparCampos()
+            tabela()
+            acao()
+
+        }
     }
+}
+
+async function buscaCep(cep){
+    let url = `http://viacep.com.br/ws/${cep}/json/`;
+    let dados = await fetch(url)
+    let enderecoApi = await dados.json()
+    if(enderecoApi.hasOwnProperty('erro')){
+        document.getElementById("endereco").value="Local não encontrado"
+        return 'erro'
+    }else{
+        preencheEnde(enderecoApi)
+        var endereco = enderecoApi.logradouro
+        return  endereco
+    }
+}
+function preencheEnde(enderecoApi){
+    document.getElementById('endereco').value = enderecoApi.logradouro
 }
 
 //constante usada para resgatar os dados no banco
@@ -132,7 +149,7 @@ function preencheCampos(index){
         atualizar(index)
     })
 }
-function atualizar(index){
+async function atualizar(index){
     const edit = bdCliente()
     
     let nome = document.getElementById('nome').value
@@ -140,26 +157,30 @@ function atualizar(index){
     let dataNasc = document.getElementById('dataNasc').value 
     let cidade = document.getElementById('cidade').value
     let cep = document.getElementById('cep').value 
-    let endereco = document.getElementById('endereco').value
     let numero = document.getElementById('numero').value 
     
-    let objNovo = {
-        Obnome : nome,
-        Obsobrenome : sobrenome,
-        Obdatanascimento : dataNasc,
-        Obcidade : cidade,
-        Obcep : cep,
-        Obendereco : endereco,
-        Obnumero : numero
+    var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
+    var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
+    if(retorno!='erro'){
+        
+        let objNovo = {
+            Obnome : nome,
+            Obsobrenome : sobrenome,
+            Obdatanascimento : dataNasc,
+            Obcidade : cidade,
+            Obcep : cep,
+            Obendereco : retorno,
+            Obnumero : numero
+        }
+       
+        edit[index] = objNovo
+        respSet(edit)
+        limparCampos()
+        tabela()
+        document.getElementById("cadastrar").disabled = false
+        document.getElementById("atualizar").disabled = true
     }
-   
-    edit[index] = objNovo
-    respSet(edit)
-    limparCampos()
-    tabela()
-    document.getElementById("cadastrar").disabled = false
-    document.getElementById("atualizar").disabled = true
-}
+    }
 
 const editDelete = (event) =>{//Função que vai receber o id e discernir qual ação será seguida
     const [acao , indice] = event.target.id.split('-')
@@ -179,6 +200,5 @@ function acao(){//Função que roda a tabela e adiciona os eventos de click
         linha.addEventListener('click', editDelete)
     })
 }
+
 tabela()
-document.getElementById("atualizar").disabled = true
-document.getElementById("endereco").disabled = true
