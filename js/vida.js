@@ -22,7 +22,28 @@ function cadastrar() {
     let endereco = document.getElementById('endereco').value.trim()
     let numero = document.getElementById('numero').value.trim()
 
-    if(nome==''||sobrenome==''||dataNasc==''||cidade==''||cep==''||endereco==''||numero==''){
+    const Rxnome = /[\w]/
+    let condNome = Rxnome.test(nome)
+    let condSobre = Rxnome.test(sobrenome)
+    console.log(condNome)
+    console.log(condSobre)
+
+    const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
+    let condData = Rxdata.test(dataNasc)
+
+    const RxCity = /[\W{ã,â,á,à,ú,ù,ó,ô,õ,ç,é,è}]/
+    let condCity = RxCity.test(cidade)
+    console.log(condCity)
+
+    const Rxcep = /(\d{5})[-]{1}?(\d{3})/
+    let condCep = Rxcep.test(cep)
+    console.log(condCep)
+
+    const Rxnum = /\d{1,5}/
+    let condNum = Rxnum.test(numero)
+    console.log(condNum)
+
+    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         cont++;
@@ -160,3 +181,4 @@ function acao(){//Função que roda a tabela e adiciona os eventos de click
 }
 tabela()
 document.getElementById("atualizar").disabled = true
+document.getElementById("endereco").disabled = true
