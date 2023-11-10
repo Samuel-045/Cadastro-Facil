@@ -4,6 +4,10 @@ document.getElementById("endereco").disabled = true
 function limparCampos(){
     campos = document.querySelectorAll('.campo')
     campos.forEach(campos => campos.value='')
+    
+    document.getElementById('clientes').value = "$" // retorna para a opção 'Selecione'
+
+    document.getElementById("retorno").innerHTML = ''
     document.getElementById("cadastrar").disabled = false
     document .getElementById("atualizar").disabled = true
 }
@@ -22,10 +26,12 @@ async function cadastrar() {
     let cidade = document.getElementById('cidade').value.trim()
     let cep = document.getElementById('cep').value.trim()
     let numero = document.getElementById('numero').value.trim()
+    let tpCliente = document.getElementById('clientes').value.trim()
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
+    let condCliente = Rxnome.test(tpCliente)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
@@ -39,7 +45,7 @@ async function cadastrar() {
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
 
-    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum){
+    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -54,15 +60,18 @@ async function cadastrar() {
                 Obcidade: cidade,
                 Obcep: cep,
                 Obendereco: retorno,
-                Obnumero: numero
+                Obnumero: numero,
+                Obcliente:tpCliente
             }
+            
+            
             const vetor = respGet()
             vetor.push(obj)
             respSet(vetor)
             limparCampos()
             tabela()
             acao()
-
+            
         }
     }
 }
@@ -143,6 +152,7 @@ function preencheCampos(index){
     document.getElementById('cep').value = cliente.Obcep
     document.getElementById('endereco').value = cliente.Obendereco
     document.getElementById('numero').value = cliente.Obnumero
+    document.getElementById('clientes').value = cliente.Obcliente
     
     document.getElementById("atualizar").addEventListener('click', event=>{
         event.preventDefault()
@@ -158,10 +168,12 @@ async function atualizar(index){
     let cidade = document.getElementById('cidade').value
     let cep = document.getElementById('cep').value 
     let numero = document.getElementById('numero').value 
+    let tpCliente = document.getElementById('clientes').value
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
+    let condCliente = Rxnome.test(tpCliente)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
@@ -175,7 +187,7 @@ async function atualizar(index){
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
     
-    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum){
+    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -189,7 +201,8 @@ async function atualizar(index){
                 Obcidade : cidade,
                 Obcep : cep,
                 Obendereco : retorno,
-                Obnumero : numero
+                Obnumero : numero,
+                Obcliente : tpCliente
             }
         
             edit[index] = objNovo
@@ -222,3 +235,12 @@ function acao(){//Função que roda a tabela e adiciona os eventos de click
 }
 
 tabela()
+
+const opcoesCli = ['Bronze','Prata','Ouro','Platina','Diamante']
+opcoesCli.forEach(valSelection)
+function valSelection(opcao){
+    const valor = document.createElement('option')
+    valor.innerHTML =`<option value=${opcao}>${opcao}</option>`
+     
+    document.querySelector('form .caixaSup .dir #clientes').appendChild(valor)
+}
