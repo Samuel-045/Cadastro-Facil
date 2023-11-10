@@ -158,29 +158,49 @@ async function atualizar(index){
     let cidade = document.getElementById('cidade').value
     let cep = document.getElementById('cep').value 
     let numero = document.getElementById('numero').value 
+
+    const Rxnome = /[\w]/
+    let condNome = Rxnome.test(nome)
+    let condSobre = Rxnome.test(sobrenome)
+
+    const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
+    let condData = Rxdata.test(dataNasc)
+
+    const RxCity = /[\W{ã,â,á,à,ú,ù,ó,ô,õ,ç,é,è}]/
+    let condCity = RxCity.test(cidade)
+
+    const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
+    let condCep = Rxcep.test(cep)
+
+    const Rxnum = /\d{1,5}/
+    let condNum = Rxnum.test(numero)
     
-    var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
-    var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
-    if(retorno!='erro'){
+    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum){
+        document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
+    }else{
+        var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
+        var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
+        if(retorno!='erro'){
+            document.getElementById("retorno").innerHTML = ''
+            let objNovo = {
+                Obnome : nome,
+                Obsobrenome : sobrenome,
+                Obdatanascimento : dataNasc,
+                Obcidade : cidade,
+                Obcep : cep,
+                Obendereco : retorno,
+                Obnumero : numero
+            }
         
-        let objNovo = {
-            Obnome : nome,
-            Obsobrenome : sobrenome,
-            Obdatanascimento : dataNasc,
-            Obcidade : cidade,
-            Obcep : cep,
-            Obendereco : retorno,
-            Obnumero : numero
+            edit[index] = objNovo
+            respSet(edit)
+            limparCampos()
+            tabela()
+            document.getElementById("cadastrar").disabled = false
+            document.getElementById("atualizar").disabled = true
         }
-       
-        edit[index] = objNovo
-        respSet(edit)
-        limparCampos()
-        tabela()
-        document.getElementById("cadastrar").disabled = false
-        document.getElementById("atualizar").disabled = true
-    }
-    }
+    }    
+}
 
 const editDelete = (event) =>{//Função que vai receber o id e discernir qual ação será seguida
     const [acao , indice] = event.target.id.split('-')
