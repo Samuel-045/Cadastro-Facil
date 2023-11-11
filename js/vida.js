@@ -78,7 +78,7 @@ async function cadastrar() {
 }
 
 async function buscaCep(cep){
-    let url = `http://viacep.com.br/ws/${cep}/json/`;
+    let url = `https://viacep.com.br/ws/${cep}/json/`;
     let dados = await fetch(url)
     let enderecoApi = await dados.json()
     if(enderecoApi.hasOwnProperty('erro')){
