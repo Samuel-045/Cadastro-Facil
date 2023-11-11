@@ -10,6 +10,7 @@ function limparCampos(){
     document.getElementById("retorno").innerHTML = ''
     document.getElementById("cadastrar").disabled = false
     document .getElementById("atualizar").disabled = true
+    estilButton()
 }
 
 document.getElementById('limpar').addEventListener('click', event => {
@@ -211,6 +212,7 @@ async function atualizar(index){
             tabela()
             document.getElementById("cadastrar").disabled = false
             document.getElementById("atualizar").disabled = true
+
         }
     }    
 }
@@ -222,11 +224,11 @@ const editDelete = (event) =>{//Função que vai receber o id e discernir qual a
         preencheCampos(indice)
         document.getElementById("cadastrar").disabled = true
         document.getElementById("atualizar").disabled = false
+        estilButton()
     }else{
         deletar(indice)
     }
 }
-
 function acao(){//Função que roda a tabela e adiciona os eventos de click
     const linhaEvento = document.querySelectorAll("#table tbody tr img")
     linhaEvento.forEach(linha => {
@@ -244,3 +246,19 @@ function valSelection(opcao){
      
     document.querySelector('form .caixaSup .dir #clientes').appendChild(valor)
 }
+
+function estilButton(){//função para estilizar os botões, diferenciando os botões habilitados e desabilitados
+    var buttons = document.querySelectorAll('button')
+    
+    buttons.forEach(botao => {
+        if(!botao.disabled){
+            botao.style.background = 'black'
+            botao.style.color = 'white'
+            botao.style.transition = '0.5s'
+        }else{
+            botao.style.background = 'transparent'
+            botao.style.color = 'gray' 
+        }
+    })
+}
+estilButton()
