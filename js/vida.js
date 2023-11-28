@@ -24,21 +24,17 @@ async function cadastrar() {
     let nome = document.getElementById('nome').value.trim()
     let sobrenome = document.getElementById('sobrenome').value.trim()
     let dataNasc = document.getElementById('dataNasc').value.trim()
-    let cidade = document.getElementById('cidade').value.trim()
     let cep = document.getElementById('cep').value.trim()
     let numero = document.getElementById('numero').value.trim()
-    let tpCliente = document.getElementById('clientes').value.trim()
+    let tpUF = document.getElementById('clientes').value.trim()
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpCliente)//reutilizando o regex do nome para o tipo de cliente
+    let condCliente = Rxnome.test(tpUF)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
-
-    const RxCity = /[\W{ã,â,á,à,ú,ù,ó,ô,õ,ç,é,è}]/
-    let condCity = RxCity.test(cidade)
 
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
@@ -46,7 +42,7 @@ async function cadastrar() {
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
 
-    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum||!condCliente){
+    if(!condNome||!condSobre||!condData||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -58,11 +54,10 @@ async function cadastrar() {
                 Obnome: nome,
                 Obsobrenome: sobrenome,
                 Obdatanascimento: dataNasc,
-                Obcidade: cidade,
                 Obcep: cep,
                 Obendereco: retorno,
                 Obnumero: numero,
-                Obcliente:tpCliente
+                ObUF:tpUF
             }
             
             
@@ -96,32 +91,6 @@ function preencheEnde(enderecoApi){
 
 //constante usada para resgatar os dados no banco
 const bdCliente = () => localStorage.length==0 ? [] : JSON.parse(localStorage.getItem("registro"))
-
-const criarLinha = (client,index) => {
-    const estrutura = document.createElement('tr')
-    estrutura.innerHTML=`
-        <td class="centro">${client.Obnome}</td>
-        <td class="centro">${client.Obdatanascimento}</td>
-        <td class="centro">${client.Obcidade}</td>
-        <td class="centro">${client.Obendereco}</td>
-        <td class="imgs" id="imgs">
-            <img src="../img/editar.png" id="Editar-${index}" title="Editar" alt="Editar">
-            <img src="../img/bin.png" id="Excluir-${index}" title="Excluir" alt="Excluir">    
-        </td>
-        `
-    document.querySelector("#table>tbody").appendChild(estrutura)
-}
-const desfazerLinha = () => {
-    const linhas = document.querySelectorAll("#table>tbody tr")
-    linhas.forEach(linha => linha.parentNode.removeChild(linha))
-}
-
-function tabela(){
-    const tab = bdCliente()
-    desfazerLinha()
-    tab.forEach(criarLinha)
-    acao()
-}
 
 document.getElementById("cadastrar").addEventListener('click', event =>{
     event.preventDefault();
@@ -166,21 +135,17 @@ async function atualizar(index){
     let nome = document.getElementById('nome').value
     let sobrenome = document.getElementById('sobrenome').value 
     let dataNasc = document.getElementById('dataNasc').value 
-    let cidade = document.getElementById('cidade').value
     let cep = document.getElementById('cep').value 
     let numero = document.getElementById('numero').value 
-    let tpCliente = document.getElementById('clientes').value
+    let tpUF = document.getElementById('clientes').value
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpCliente)//reutilizando o regex do nome para o tipo de cliente
+    let condCliente = Rxnome.test(tpUF)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
-
-    const RxCity = /[\W{ã,â,á,à,ú,ù,ó,ô,õ,ç,é,è}]/
-    let condCity = RxCity.test(cidade)
 
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
@@ -188,7 +153,7 @@ async function atualizar(index){
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
     
-    if(!condNome||!condSobre||!condData||!condCity||!condCep||!condNum||!condCliente){
+    if(!condNome||!condSobre||!condData||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -199,11 +164,10 @@ async function atualizar(index){
                 Obnome : nome,
                 Obsobrenome : sobrenome,
                 Obdatanascimento : dataNasc,
-                Obcidade : cidade,
                 Obcep : cep,
                 Obendereco : retorno,
                 Obnumero : numero,
-                Obcliente : tpCliente
+                ObUF : tpUF
             }
         
             edit[index] = objNovo
@@ -217,29 +181,9 @@ async function atualizar(index){
     }    
 }
 
-const editDelete = (event) =>{//Função que vai receber o id e discernir qual ação será seguida
-    const [acao , indice] = event.target.id.split('-')
 
-    if(acao=='Editar'){
-        preencheCampos(indice)
-        document.getElementById("cadastrar").disabled = true
-        document.getElementById("atualizar").disabled = false
-        estilButton()
-    }else{
-        deletar(indice)
-    }
-}
-function acao(){//Função que roda a tabela e adiciona os eventos de click
-    const linhaEvento = document.querySelectorAll("#table tbody tr img")
-    linhaEvento.forEach(linha => {
-        linha.addEventListener('click', editDelete)
-    })
-}
-
-tabela()
-
-const opcoesCli = ['Bronze','Prata','Ouro','Platina','Diamante']
-opcoesCli.forEach(valSelection)
+const uf = ['SP-São Paulo','RJ-Rio de Janeiro','MG-Minas Gerais','ES-Espírito Santo','RS-Rio Grande do Sul']
+uf.forEach(valSelection)
 function valSelection(opcao){
     const valor = document.createElement('option')
     valor.innerHTML =`<option value=${opcao}>${opcao}</option>`
@@ -249,9 +193,13 @@ function valSelection(opcao){
 
 function estilButton(){//função para estilizar os botões, diferenciando os botões habilitados e desabilitados
     var buttons = document.querySelectorAll('button')
+    var link = document.querySelector('#PagTabela')
+    link.style.background = 'black'
+    link.style.color = 'white'
+    link.style.text_decoration = 'none'
     
     buttons.forEach(botao => {
-        if(!botao.disabled){
+        if(!botao.disabled){        
             botao.style.background = 'black'
             botao.style.color = 'white'
             botao.style.transition = '0.5s'

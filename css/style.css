@@ -19,15 +19,19 @@ h1{
     font-family: 'Arial Narrow Bold', sans-serif;
 }
 
-main form {
+main form{
     width: 50%;
     margin: 50px auto;
+}
+
+a{
+    text-decoration: none;
 }
 
 main form label,
 main form button,
 main form .dir span,
-article table{
+main form .inferior a{
     font-family:'Courier New', Courier, monospace;
 }
 
@@ -80,40 +84,13 @@ main form .inferior{
     padding-top: 30px;
 }
 
-main form .inferior button{
+main form .inferior button,
+main form .inferior a{
     padding: 10px;
     border-radius: 5px;
     font-weight: bold;
     letter-spacing: 1.5px;
     font-size: medium;
-}
-
-article{
-    width: 50%;
-    margin: 20px auto;
-}
-
-table th,
-table td{
-    width: 10%;
-}
-
-table th{
-    background: rgb(180, 180, 180);
-    letter-spacing: 1.5px;
-    font-weight: bold;
-}
-
-body table td{
-    padding: 15px 0;
-}
-
-body table img{
-    max-width: 20px;
-}
-
-body table .imgs{  
-    text-align: center;
 }
 
 body .centro{

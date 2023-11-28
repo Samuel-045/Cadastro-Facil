@@ -1,102 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/icon.png">
-    <title>Cadastro</title>
-</head>
-<body>
-    <header>
-        <img src="img/icon.png" alt="logo" title="logo">
-        <h1>Cadastro de clientes</h1>
-        <div class="apoio"><span>.</span></div>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icon.png">
+        <title>Cadastro</title>
+    </head>
+    <body>
+        <header>
+            <img src="img/icon.png" alt="logo" title="logo">
+            <h1>Cadastro de clientes</h1>
+            <div class="apoio"><span>.</span></div>
+        </header>
 
-    <main>
-        <form>
-            <div class="caixaSup">
+        <main>
+            <form>
+                <div class="caixaSup">
+                    
+                    <div class="esq">
+                        <div class="caixa">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="campo" id="nome" placeholder="Digite seu nome" autocomplete="off">
+                        </div>
+                        
+                        <div class="caixa">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <input type="text" class="campo" id="sobrenome" placeholder="Digite seu sobrenome" autocomplete="off">
+                        </div>
+                        
+                        <div class="caixa">
+                            <label for="dataNasc">Data de nascimento:</label>
+                            <input type="date" class="campo" id="dataNasc" autocomplete="off">
+                        </div>
+        
+                        <div class="caixa">
+                            <label for="cep">CEP:</label>
+                            <input type="text" class="campo" id="cep" maxlength="10" placeholder="00000-000" autocomplete="off">
+                        </div>
+        
+                        <div class="moradia">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" class="campo" id="endereco" placeholder="Preenchimento automático*" autocomplete="off">
+        
+                            <label for="numero">N#:</label>
+                            <input type="text"  class="numero campo" id="numero" placeholder="Nº da casa" autocomplete="off">
+                        </div>
+                    </div>
+        
+                    <div class="dir">
+                        <label for="clientes">Tipos de clientes</label>
+                        <select id="clientes">                
+                            <option value="$">Selecione</option>
+                            <!--O value do campo acima é para forçar o usuário escolher alguma opção-->
+                        </select>
+
+                        <span id="retorno"></span>
+                    </div>
                 
-                <div class="esq">
-                    <div class="caixa">
-                        <label for="nome">Nome:</label>
-                        <input type="text" class="campo" id="nome" placeholder="Digite seu nome" autocomplete="off">
-                    </div>
-                    
-                    <div class="caixa">
-                        <label for="sobrenome">Sobrenome:</label>
-                        <input type="text" class="campo" id="sobrenome" placeholder="Digite seu sobrenome" autocomplete="off">
-                    </div>
-
-                    
-                    <div class="caixa">
-                        <label for="dataNasc">Data de nascimento:</label>
-                        <input type="date" class="campo" id="dataNasc" autocomplete="off">
-                    </div>
-
-    
-                    <div class="caixa">
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" class="campo" id="cidade" placeholder="Digite o nome da sua cidade" autocomplete="off">
-                    </div>
-    
-                    <div class="caixa">
-                        <label for="cep">CEP:</label>
-                        <input type="text" class="campo" id="cep" maxlength="10" placeholder="00000-000" autocomplete="off">
-                    </div>
-    
-                    <div class="moradia">
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" class="campo" id="endereco" placeholder="Preenchimento automático*" autocomplete="off">
-    
-                        <label for="numero">N#:</label>
-                        <input type="text"  class="numero campo" id="numero" placeholder="Nº da casa" autocomplete="off">
-                    </div>
                 </div>
-    
-                <div class="dir">
-                    <label for="clientes">Tipos de clientes</label>
-                    <select id="clientes">                
-                        <option value="$">Selecione</option>
-                        <!--O value do campo acima é para forçar o usuário escolher alguma opção-->
-                    </select>
 
-                    <span id="retorno"></span>
+                <div class="inferior">
+                    <button id="atualizar">Atualizar</button>
+                    <button id="cadastrar">Confirmar</button>
+                    <button id="limpar">Limpar</button>
+                    <a href="tabela.html" id="PagTabela">Lista de clientes</a>
                 </div>
-            
-            </div>
 
-            <div class="inferior">
-                <button id="atualizar">Atualizar</button>
-                <button id="cadastrar">Confirmar</button>
-                <button id="limpar">Limpar</button>
-            </div>
+            </form>
+        </main>
 
-        </form>
-    </main>
-
-    <article>
-
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Data de Nascimento</th>
-                    <th>UF</th>
-                    <th>Endereço</th>
-                    <th>Ação</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-
-    </article>
-
-    <script src="js/vida.js"></script>
-</body>
+        <script src="js/vida.js"></script>
+    </body>
 </html>
