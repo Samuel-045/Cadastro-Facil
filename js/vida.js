@@ -65,8 +65,6 @@ async function cadastrar() {
             vetor.push(obj)
             respSet(vetor)
             limparCampos()
-            tabela()
-            acao()
             
         }
     }
