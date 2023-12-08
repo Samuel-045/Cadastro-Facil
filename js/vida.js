@@ -97,32 +97,16 @@ document.getElementById("cadastrar").addEventListener('click', event =>{
     cadastrar();
 })
 
-function deletar(index) {
-    const del = respGet()
-    del.splice(index,1)
-    localStorage.clear()
-    vetor = respGet()
-
-    for(var i = 0; i<del.length; i++){
-        vetor.push(del[i])
-    }
-
-    respSet(vetor)
-    tabela()
-    acao()
-}
-
 function preencheCampos(index){
     const cliente = bdCliente()[index]  
 
     document.getElementById('nome').value = cliente.Obnome
     document.getElementById('sobrenome').value = cliente.Obsobrenome
     document.getElementById('dataNasc').value = cliente.Obdatanascimento
-    document.getElementById('cidade').value = cliente.Obcidade
     document.getElementById('cep').value = cliente.Obcep
     document.getElementById('endereco').value = cliente.Obendereco
     document.getElementById('numero').value = cliente.Obnumero
-    document.getElementById('clientes').value = cliente.Obcliente
+    document.getElementById('clientes').value = cliente.ObUF
     
     document.getElementById("atualizar").addEventListener('click', event=>{
         event.preventDefault()
@@ -181,7 +165,6 @@ async function atualizar(index){
     }    
 }
 
-
 const uf = ['SP-São Paulo','RJ-Rio de Janeiro','MG-Minas Gerais','ES-Espírito Santo','RS-Rio Grande do Sul']
 uf.forEach(valSelection)
 function valSelection(opcao){
@@ -208,5 +191,12 @@ function estilButton(){//função para estilizar os botões, diferenciando os bo
             botao.style.color = 'gray' 
         }
     })
+}
+
+if(window.location.href.split("?")[1]== 'alt'){
+    preencheCampos(window.location.href.split("?")[2])
+    document.getElementById("cadastrar").disabled = true
+    document.getElementById("atualizar").disabled = false
+    estilButton()
 }
 estilButton()

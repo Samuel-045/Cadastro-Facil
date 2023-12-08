@@ -36,12 +36,9 @@ const editDelete = (event) =>{//Função que vai receber o id e discernir qual a
     const [acao , indice] = event.target.id.split('-')
 
     if(acao=='Editar'){
-        preencheCampos(indice)
-        document.getElementById("cadastrar").disabled = true
-        document.getElementById("atualizar").disabled = false
-        estilButton()
+        window.open("index.html?alt?"+indice+"?90" , '_self')
     }else{
-        deletar(indice)
+        window.open("del.html?exc?"+indice+"?90",'_self')
     }
 }
 
