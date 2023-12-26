@@ -198,3 +198,15 @@ if(window.location.href.split("?")[1]== 'alt'){
     estilButton()
 }
 estilButton()
+
+// códigos para a tela mobile 
+const pop = document.getElementById("popup")
+document.getElementById("opcoes").addEventListener('click', event => {
+    event.preventDefault()
+    pop.style.top = '30%'
+})
+
+document.getElementById("voltar").addEventListener('click', event => {
+    event.preventDefault()
+    pop.style.top = '100%'
+})
