@@ -70,7 +70,10 @@ span{
 }
 
 span{
+    padding: 25px 0;
+    color: crimson;
     font-size: small;
+    font-weight: 900;
 }
 
 input,
@@ -102,9 +105,9 @@ select{
 @media (min-width:280px){
     .caixaSup{
         width: 90%;
-        padding: 14px 14px;
+        padding: 14px;
         box-sizing: border-box;
-        margin: 5% auto;
+        margin: 5% auto 60px auto;
         background: #A8A8A8;
         box-shadow: 0px 12px 10px 10px rgba(37, 36, 36, 0.60);
     }
@@ -150,11 +153,16 @@ select{
         box-sizing: border-box;
         width: 50%;
         max-width: 150px;
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     form .popup .acoes button,
     form .popup .acoes a{
-        margin:2px 0;
+        border: solid black 0.5px;
+        padding: 0 4px;
     }
 
     form .inferior .opcoes{
