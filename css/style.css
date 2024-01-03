@@ -64,8 +64,13 @@ form .inferior button:hover{
 form button, 
 form a,
 input,
-select{
+select, 
+span{
     font-family: 'Courier Prime', monospace;
+}
+
+span{
+    font-size: small;
 }
 
 input,

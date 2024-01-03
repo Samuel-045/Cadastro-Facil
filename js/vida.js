@@ -43,7 +43,7 @@ async function cadastrar() {
     let condNum = Rxnum.test(numero)
 
     if(!condNome||!condSobre||!condData||!condCep||!condNum||!condCliente){
-        document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
+        document.getElementById("retorno").innerHTML = '<p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
         var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
@@ -201,7 +201,7 @@ estilButton()
 
 // códigos para a tela mobile 
 const pop = document.getElementById("popup")
-const main = document.querySelector('main')
+const body = document.querySelector('*')
 const header = document.querySelector('header')
 const caixaSup = document.querySelector('.caixaSup')
 const inputs = document.querySelectorAll('input')
@@ -213,7 +213,7 @@ document.getElementById("opcoes").addEventListener('click', event => {
     pop.style.animationName = 'caminhoPopUp1' // ativação da animação criada no css
    
     //linhas para deixar o fundo escuro quando o pop-up descer
-    main.style.background = "rgba(0,0,0,0.5)"
+    body.style.background = "rgba(0,0,0,0.5)"
     header.style.background = "rgba(0,0,0,0.5)"
     caixaSup.style.background = "rgba(0,0,0,0.2)"
     inputs.forEach( input => {
@@ -230,7 +230,7 @@ document.getElementById("voltar").addEventListener('click', event => {
     pop.style.animationName = 'caminhoPopUp2' // ativação da animação criada no css
    
     //linhas para deixar o fundo escuro quando o pop-up descer
-    main.style.background = "#FFF"
+    body.style.background = "#FFF"
     header.style.background = "#A8A8A8"
     caixaSup.style.background = "#A8A8A8"
     inputs.forEach( input => {
