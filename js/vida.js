@@ -215,7 +215,7 @@ document.getElementById("opcoes").addEventListener('click', event => {
     //linhas para deixar o fundo escuro quando o pop-up descer
     body.style.background = "rgba(0,0,0,0.5)"
     header.style.background = "rgba(0,0,0,0.5)"
-    caixaSup.style.background = "rgba(0,0,0,0.6)"
+    caixaSup.style.background = "rgba(0,0,0,0.4)"
     inputs.forEach( input => {
         input.style.background = "rgba(0,0,0,0.2)"
     });

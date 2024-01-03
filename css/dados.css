@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Inria+Sans:ital,wght@1,300&family=Open+Sans:ital,wght@1,300&family=Poppins:ital,wght@1,100&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -18,10 +19,6 @@ header img{
     max-width: 60px;
     max-height: 60px;
     margin-right: 10%;
-}
-
-h1{
-    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 main{
