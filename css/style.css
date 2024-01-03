@@ -75,6 +75,26 @@ select{
     padding: 4px 6px;
     border-radius: 5px ;
 }
+
+@keyframes caminhoPopUp1 { /*Animação para o popup descer*/
+    from {
+        top:-200%;
+    }
+    to {
+        top:30%
+    }
+}
+
+@keyframes caminhoPopUp2{ /*Animação para o popup subir*/
+    from {
+        top: 30%
+    }
+
+    to {
+        top:-200%
+    }
+}
+
 @media (min-width:280px){
     .caixaSup{
         width: 90%;

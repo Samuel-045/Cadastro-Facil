@@ -203,10 +203,14 @@ estilButton()
 const pop = document.getElementById("popup")
 document.getElementById("opcoes").addEventListener('click', event => {
     event.preventDefault()
-    pop.style.top = '30%';
+    pop.style.animationDuration = '0.8s'
+    pop.style.animationName = 'caminhoPopUp1' // ativação da animação criada no css
+    pop.style.top = '30%'
 })
 
 document.getElementById("voltar").addEventListener('click', event => {
     event.preventDefault()
-    pop.style.top = '-300%';
+    pop.style.animationDuration = '1.5s'
+    pop.style.animationName = 'caminhoPopUp2' // ativação da animação criada no css
+    pop.style.top = '-200%'
 })
