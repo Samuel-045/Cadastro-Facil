@@ -201,16 +201,42 @@ estilButton()
 
 // códigos para a tela mobile 
 const pop = document.getElementById("popup")
+const main = document.querySelector('main')
+const header = document.querySelector('header')
+const caixaSup = document.querySelector('.caixaSup')
+const inputs = document.querySelectorAll('input')
+const select = document.querySelector('select')
+
 document.getElementById("opcoes").addEventListener('click', event => {
     event.preventDefault()
-    pop.style.animationDuration = '0.8s'
+    pop.style.animationDuration = '0.6s'
     pop.style.animationName = 'caminhoPopUp1' // ativação da animação criada no css
+   
+    //linhas para deixar o fundo escuro quando o pop-up descer
+    main.style.background = "rgba(0,0,0,0.5)"
+    header.style.background = "rgba(0,0,0,0.5)"
+    caixaSup.style.background = "rgba(0,0,0,0.2)"
+    inputs.forEach( input => {
+        input.style.background = "rgba(0,0,0,0.2)"
+    });
+    select.style.background = "rgba(0,0,0,0.2)"
+
     pop.style.top = '30%'
 })
 
 document.getElementById("voltar").addEventListener('click', event => {
     event.preventDefault()
-    pop.style.animationDuration = '1.5s'
+    pop.style.animationDuration = '1.2s'
     pop.style.animationName = 'caminhoPopUp2' // ativação da animação criada no css
+   
+    //linhas para deixar o fundo escuro quando o pop-up descer
+    main.style.background = "#FFF"
+    header.style.background = "#A8A8A8"
+    caixaSup.style.background = "#A8A8A8"
+    inputs.forEach( input => {
+        input.style.background = "#dbdbdb"
+    });
+    select.style.background = "#dbdbdb"
+
     pop.style.top = '-200%'
 })
