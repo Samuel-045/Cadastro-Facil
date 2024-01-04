@@ -206,6 +206,7 @@ const header = document.querySelector('header')
 const caixaSup = document.querySelector('.caixaSup')
 const inputs = document.querySelectorAll('input')
 const select = document.querySelector('select')
+var condPop = false
 
 document.getElementById("opcoes").addEventListener('click', event => {
     event.preventDefault()
@@ -222,10 +223,10 @@ document.getElementById("opcoes").addEventListener('click', event => {
     select.style.background = "rgba(0,0,0,0.2)"
 
     pop.style.top = '30%'
+    condPop=true
 })
 
-document.getElementById("voltar").addEventListener('click', event => {
-    event.preventDefault()
+function fecharPop(){
     pop.style.animationDuration = '1.2s'
     pop.style.animationName = 'caminhoPopUp2' // ativação da animação criada no css
    
@@ -239,4 +240,24 @@ document.getElementById("voltar").addEventListener('click', event => {
     select.style.background = "#dbdbdb"
 
     pop.style.top = '-200%'
+}
+
+document.getElementById("voltar").addEventListener('click', event => {
+    event.preventDefault()
+    fecharPop()
 })
+
+header.addEventListener('click', event => {
+    if(condPop){
+        fecharPop()
+        condPop=false
+    }
+})
+
+caixaSup.addEventListener('click', event => {
+    if(condPop){
+        fecharPop()
+        condPop=false
+    }
+})
+
