@@ -189,7 +189,6 @@ select{
         position: initial;
         width: 100%;
         border-radius: 0;
-        border: 2px solid rgb(69, 27, 255);
         margin: 0 auto;
     }
 
