@@ -73,13 +73,6 @@ main .PagTabela a{
     background: black;
 }
 
-main .PagTabela a:hover{
-    color: black;
-    border: solid 1px black;
-    background: rgb(200, 200, 200);
-    transition: 0.5s;
-}
-
 @media  (min-width: 319px){
     table{
         font-size: small;
