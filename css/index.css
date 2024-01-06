@@ -130,7 +130,7 @@ select{
     }
 
     form .popup{
-        top:-300%;
+        top:-200%;
         width: 80%;
         margin: 0 10%;
         padding: 8px;
@@ -175,4 +175,35 @@ select{
         padding: 2px 12px;
         box-sizing: border-box;
     }
+}
+
+@media (min-width: 767px){
+    .inferior,
+    .popup h3,
+    .popup .voltar{
+        visibility: hidden;
+    }
+
+    form .popup{
+        background: #a8a8a8;
+        position: initial;
+        width: 100%;
+        border-radius: 0;
+        border: 2px solid rgb(69, 27, 255);
+        margin: 0 auto;
+    }
+
+    form .popup .acoes button,
+    form .popup .acoes a{
+        padding: 5px 10px;
+    }
+
+    form .popup .acoes{
+        max-width: 650px;
+        flex-direction: row;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
+    }
+
 }
