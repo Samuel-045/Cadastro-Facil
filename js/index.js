@@ -1,5 +1,6 @@
 document.getElementById("atualizar").disabled = true
-document.getElementById("endereco").disabled = true
+const endereco = document.getElementById("endereco")
+endereco.disabled = true
 
 function limparCampos(){
     campos = document.querySelectorAll('.campo')
@@ -26,12 +27,12 @@ async function cadastrar() {
     let dataNasc = document.getElementById('dataNasc').value.trim()
     let cep = document.getElementById('cep').value.trim()
     let numero = document.getElementById('numero').value.trim()
-    let tpUF = document.getElementById('clientes').value.trim()
+    let tpestado = document.getElementById('clientes').value.trim()
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpUF)//reutilizando o regex do nome para o tipo de cliente
+    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
@@ -57,7 +58,7 @@ async function cadastrar() {
                 Obcep: cep,
                 Obendereco: retorno,
                 Obnumero: numero,
-                ObUF:tpUF
+                Obestado:tpestado
             }
             
             
@@ -104,7 +105,7 @@ function preencheCampos(index){
     document.getElementById('cep').value = cliente.Obcep
     document.getElementById('endereco').value = cliente.Obendereco
     document.getElementById('numero').value = cliente.Obnumero
-    document.getElementById('clientes').value = cliente.ObUF
+    document.getElementById('clientes').value = cliente.Obestado
     
     document.getElementById("atualizar").addEventListener('click', event=>{
         event.preventDefault()
@@ -119,12 +120,12 @@ async function atualizar(index){
     let dataNasc = document.getElementById('dataNasc').value 
     let cep = document.getElementById('cep').value 
     let numero = document.getElementById('numero').value 
-    let tpUF = document.getElementById('clientes').value
+    let tpestado = document.getElementById('clientes').value
 
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpUF)//reutilizando o regex do nome para o tipo de cliente
+    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
@@ -149,7 +150,7 @@ async function atualizar(index){
                 Obcep : cep,
                 Obendereco : retorno,
                 Obnumero : numero,
-                ObUF : tpUF
+                Obestado : tpestado
             }
         
             edit[index] = objNovo
@@ -163,8 +164,8 @@ async function atualizar(index){
     }    
 }
 
-const uf = ['SP-São Paulo','RJ-Rio de Janeiro','MG-Minas Gerais','ES-Espírito Santo','RS-Rio Grande do Sul']
-uf.forEach(valSelection)
+const estado = ['SP-São Paulo','RJ-Rio de Janeiro','MG-Minas Gerais','ES-Espírito Santo','RS-Rio Grande do Sul']
+estado.forEach(valSelection)
 function valSelection(opcao){
     const valor = document.createElement('option')
     valor.innerHTML =`<option value=${opcao}>${opcao}</option>`
@@ -261,7 +262,8 @@ caixaSup.addEventListener('click', event => {
 })
 
 // códigos para a verificação de usuário -> ação do pop-up de verificação
-document.getElementById("clientes").disabled = true
+const estd = document.getElementById("clientes")
+estd.disabled = true
 opcoes.disabled = true
 var campos = document.querySelectorAll("input")
 campos.forEach( campo=> {
@@ -287,6 +289,7 @@ bttnS.addEventListener('click', event => {
         campo.disabled = false
         campo.style.background = "#dbdbdb"
     })
+    camposLogin[2].style.background = 'black'
 })
 
 bttnN.addEventListener('click' , event => {
@@ -294,11 +297,27 @@ bttnN.addEventListener('click' , event => {
     login.style.animationName = "fecharVerificador"
     login.style.display = 'none'
     fundoClr()
-    document.getElementById("clientes").disabled = false
-    opcoes.disabled=false
+    estd.disabled = false
+    opcoes.disabled = false
     campos.forEach( campo=> {
         campo.disabled = false  
     });
+    endereco.disabled=true
 })
 
-//document.getElementById("PagTabela").style.display = 'initial'
+document.getElementById("confirmLogin").addEventListener('click',event => {
+    event.preventDefault()
+    if(camposLogin[0].value=='usuario' && camposLogin[1].value=='1023'){
+        login.style.animationDuration = '1.2s'
+        login.style.animationName = "fecharVerificador"
+        login.style.display = 'none'
+        fundoClr()
+        estd.disabled = false
+        opcoes.disabled = false
+        campos.forEach( campo=> {
+            campo.disabled = false  
+        });
+        endereco.disabled=true
+        document.getElementById("PagTabela").style.display = 'initial'
+    }
+})
