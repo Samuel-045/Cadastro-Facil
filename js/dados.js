@@ -9,7 +9,7 @@ const criarLinha = (client,index) => {
     estrutura.innerHTML=`
         <td class="centro">${client.Obnome}</td>
         <td class="centro">${client.Obdatanascimento}</td>
-        <td class="centro">${client.ObUF}</td>
+        <td class="centro">${client.Obestado}</td>
         <td class="centro">${client.Obendereco}</td>
         <td class="imgs" id="imgs">
             <img src="../img/editar.png" id="Editar-${index}" title="Editar" alt="Editar">

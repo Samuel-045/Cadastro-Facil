@@ -125,7 +125,7 @@ async function atualizar(index){
     const Rxnome = /[\w]/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o tipo de cliente
+    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o estado de cliente
 
     const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
     let condData = Rxdata.test(dataNasc)
@@ -156,7 +156,6 @@ async function atualizar(index){
             edit[index] = objNovo
             respSet(edit)
             limparCampos()
-            tabela()
             document.getElementById("cadastrar").disabled = false
             document.getElementById("atualizar").disabled = true
 
@@ -278,14 +277,12 @@ function verificador(){
     login.style.animationDuration = '1.2s'
     login.style.animationName = 'abreVerificador'
     login.style.right = '0'
-    console.log(login)
 }
 verificador()
 
 var camposLogin = document.querySelectorAll(".login input[class*='lg']")
 bttnS.addEventListener('click', event => {
     camposLogin.forEach(campo => {
-        console.log(campo)
         campo.disabled = false
         campo.style.background = "#dbdbdb"
     })
@@ -319,5 +316,8 @@ document.getElementById("confirmLogin").addEventListener('click',event => {
         });
         endereco.disabled=true
         document.getElementById("PagTabela").style.display = 'initial'
+        document.getElementById('retornoLg').innerHTML = ''
+    }else{
+        document.getElementById('retornoLg').innerHTML = '<p> Administrador não cadastrado </p>'
     }
 })
