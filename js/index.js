@@ -224,7 +224,8 @@ function fundoClr(){
     });
     select.style.background = "#dbdbdb"
 }
-document.getElementById("opcoes").addEventListener('click', event => {
+const opcoes = document.getElementById("opcoes")
+opcoes.addEventListener('click', event => {
     event.preventDefault()
     pop.style.animationDuration = '0.6s'
     pop.style.animationName = 'abreOpcoes' // ativação da animação criada no css
@@ -261,6 +262,7 @@ caixaSup.addEventListener('click', event => {
 
 // códigos para a verificação de usuário -> ação do pop-up de verificação
 document.getElementById("clientes").disabled = true
+opcoes.disabled = true
 var campos = document.querySelectorAll("input")
 campos.forEach( campo=> {
     campo.disabled = true
@@ -293,6 +295,7 @@ bttnN.addEventListener('click' , event => {
     login.style.display = 'none'
     fundoClr()
     document.getElementById("clientes").disabled = false
+    opcoes.disabled=false
     campos.forEach( campo=> {
         campo.disabled = false  
     });
