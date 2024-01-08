@@ -29,7 +29,8 @@ header img{
 main,
 main form .caixa,
 form .caixaSup .esq .moradia,
-form .caixaSup .dir{
+form .caixaSup .dir,
+.login form{
     display: flex;
     flex-direction: column;
 }
@@ -40,6 +41,7 @@ form .caixaSup .esq .moradia label{
 form .caixaSup .esq .caixa label,
 form .caixaSup .esq .moradia label,
 form .caixaSup .dir label,
+.login label,
 form h3{
     margin: 10px 0;
     font-family: 'Inria Sans';
@@ -47,10 +49,10 @@ form h3{
 
 form a{
     text-decoration: none;
+    display: none;
 }
 
-form button, 
-form a{
+.bttnPadrao{
     border-radius: 5px;
     color: #FFF;
     text-align: center;
@@ -60,15 +62,7 @@ form a{
     line-height: normal;
 }
 
-form .inferior button:hover{ 
-    background-color: transparent;
-    color: black;
-    transition: 0.5s;
-}
-
-form button, 
-form a,
-input,
+.bttnPadrao,
 select, 
 span{
     font-family: 'Courier Prime', monospace;
@@ -89,7 +83,30 @@ select{
     border-radius: 5px ;
 }
 
-@keyframes caminhoPopUp1 { /*Animação para o popup descer*/
+section{
+    position: absolute;
+    width: 100%;
+}
+
+@keyframes abreVerificador {
+    from{
+        rigth: -200%;
+    }
+    to{
+        rigth:0;
+    }
+}
+
+@keyframes fechaVerificador {
+    from{
+        rigth: 0;
+    }
+    to{
+        rigth:-200%;
+    }
+}
+
+@keyframes abreOpcoes { /*Animação para o popup descer*/
     from {
         top:-200%;
     }
@@ -97,7 +114,7 @@ select{
         top:30%
     }
 }
-@keyframes caminhoPopUp2{ /*Animação para o popup subir*/
+@keyframes fechaOpcoes{ /*Animação para o popup subir*/
     from {
         top: 30%
     }
@@ -131,16 +148,30 @@ select{
 
     form .popup{
         top:-200%;
-        width: 80%;
-        margin: 0 10%;
-        padding: 8px;
         box-sizing: border-box;
         position: absolute;
+        background: #DBDBDB;
+    }
+
+    form .popup,
+    section .login{
+        padding: 8px;
+        width: 80%;
+        margin: 0 10%;
         border-radius: 20px;
         border: 1px solid #000;
-        background: #DBDBDB;
+        background: #A8A8A8;
         display: flex;
         flex-direction: column;
+    }
+
+    .login input:last-of-type{
+        margin: 30px 0;
+    }
+
+    section .login .adm,
+    section .login .verificador{
+        margin: 10px auto;
     }
 
     form .popup .voltar{
@@ -165,7 +196,8 @@ select{
     }
 
     form .popup .acoes button,
-    form .popup .acoes a{
+    form .popup .acoes a,
+    .login .bttnPadrao{
         border: solid black 0.5px;
         padding: 0 4px;
     }

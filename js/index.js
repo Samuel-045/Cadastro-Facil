@@ -173,11 +173,7 @@ function valSelection(opcao){
 }
 
 function estilButton(){//função para estilizar os botões, diferenciando os botões habilitados e desabilitados
-    var buttons = document.querySelectorAll('button')
-    var link = document.querySelector('#PagTabela')
-    link.style.background = 'black'
-    link.style.color = 'white'
-    link.style.text_decoration = 'none'
+    var buttons = document.querySelectorAll('.bttnPadrao')
     
     buttons.forEach(botao => {
         if(!botao.disabled){        
@@ -199,21 +195,17 @@ if(window.location.href.split("?")[1]== 'alt'){
 }
 estilButton()
 
-// códigos para a tela mobile 
+// códigos para a tela mobile -> ação do pop-up de opções 
 const pop = document.getElementById("popup")
 const body = document.querySelector('*')
 const header = document.querySelector('header')
 const caixaSup = document.querySelector('.caixaSup')
-const inputs = document.querySelectorAll('input')
+const inputs = document.querySelectorAll("input[class*='campo']")
 const select = document.querySelector('select')
 var condPop = false
 
-document.getElementById("opcoes").addEventListener('click', event => {
-    event.preventDefault()
-    pop.style.animationDuration = '0.6s'
-    pop.style.animationName = 'caminhoPopUp1' // ativação da animação criada no css
-   
-    //linhas para deixar o fundo escuro quando o pop-up descer
+function fundoEsc(){
+    //linhas para deixar o fundo escuro quando algum pop-up ativar
     body.style.background = "rgba(0,0,0,0.5)"
     header.style.background = "rgba(0,0,0,0.5)"
     caixaSup.style.background = "rgba(0,0,0,0.4)"
@@ -221,16 +213,9 @@ document.getElementById("opcoes").addEventListener('click', event => {
         input.style.background = "rgba(0,0,0,0.2)"
     });
     select.style.background = "rgba(0,0,0,0.2)"
-
-    pop.style.top = '30%'
-    condPop=true
-})
-
-function fecharPop(){
-    pop.style.animationDuration = '1.2s'
-    pop.style.animationName = 'caminhoPopUp2' // ativação da animação criada no css
-   
-    //linhas para deixar o fundo escuro quando o pop-up descer
+}
+function fundoClr(){
+    //linhas para deixar o fundo claro quando o pop-up descer
     body.style.background = "#FFF"
     header.style.background = "#A8A8A8"
     caixaSup.style.background = "#A8A8A8"
@@ -238,26 +223,79 @@ function fecharPop(){
         input.style.background = "#dbdbdb"
     });
     select.style.background = "#dbdbdb"
+}
+document.getElementById("opcoes").addEventListener('click', event => {
+    event.preventDefault()
+    pop.style.animationDuration = '0.6s'
+    pop.style.animationName = 'abreOpcoes' // ativação da animação criada no css
+    fundoEsc()
+    pop.style.top = '30%'
+    condPop=true
+})
 
+function fecharOpc(){
+    pop.style.animationDuration = '1.2s'
+    pop.style.animationName = 'fechaOpcoes' // ativação da animação criada no css
+    fundoClr()
     pop.style.top = '-200%'
 }
 
 document.getElementById("voltar").addEventListener('click', event => {
     event.preventDefault()
-    fecharPop()
+    fecharOpc()
 })
 
 header.addEventListener('click', event => {
     if(condPop){
-        fecharPop()
+        fecharOpc()
         condPop=false
     }
 })
 
 caixaSup.addEventListener('click', event => {
     if(condPop){
-        fecharPop()
+        fecharOpc()
         condPop=false
     }
 })
 
+// códigos para a verificação de usuário -> ação do pop-up de verificação
+document.getElementById("clientes").disabled = true
+var campos = document.querySelectorAll("input")
+campos.forEach( campo=> {
+    campo.disabled = true
+});
+fundoEsc()
+
+var login = document.getElementById('login')
+var bttnS = document.getElementById('verifiS')
+var bttnN = document.getElementById('verifiN')
+function verificador(){
+    login.style.animationDuration = '1.2s'
+    login.style.animationName = 'abreVerificador'
+    login.style.right = '0'
+    console.log(login)
+}
+verificador()
+
+var camposLogin = document.querySelectorAll(".login input[class*='lg']")
+bttnS.addEventListener('click', event => {
+    camposLogin.forEach(campo => {
+        console.log(campo)
+        campo.disabled = false
+        campo.style.background = "#dbdbdb"
+    })
+})
+
+bttnN.addEventListener('click' , event => {
+    login.style.animationDuration = '1.2s'
+    login.style.animationName = "fecharVerificador"
+    login.style.display = 'none'
+    fundoClr()
+    document.getElementById("clientes").disabled = false
+    campos.forEach( campo=> {
+        campo.disabled = false  
+    });
+})
+
+//document.getElementById("PagTabela").style.display = 'initial'

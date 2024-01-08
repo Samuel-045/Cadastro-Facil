@@ -45,7 +45,7 @@
                             <input type="text" class="campo" id="endereco" placeholder="Preenchimento automático*" autocomplete="off">
         
                             <label for="numero">N#:</label>
-                            <input type="text"  class="numero campo" id="numero" placeholder="Nº da casa" autocomplete="off">
+                            <input type="text" class="numero campo" id="numero" placeholder="Nº da casa" autocomplete="off">
                         </div>
                     </div>
         
@@ -71,15 +71,36 @@
                 <div class="popup" id="popup">
                     <h3>Opções</h3>
                     <div class="acoes">
-                        <button id="atualizar">Atualizar</button>
-                        <button id="cadastrar">Confirmar</button>
-                        <button id="limpar">Limpar</button>
-                        <a href="tabela.html" id="PagTabela">Dados</a>
+                        <input type="submit" class="bttnPadrao" id="atualizar" value="Atualizar">
+                        <input type="submit" class="bttnPadrao" id="cadastrar" value="Confirmar">
+                        <input type="reset" class="bttnPadrao" id="limpar" value="Limpar">
+                        <a href="tabela.html" class="bttnPadrao" id="PagTabela">Dados</a>
                     </div>
                     <button class="voltar" id="voltar"> Voltar </button>
                 </div>
 
             </form>
+
+            <section>
+                <div id="login" class="login">
+                    <label class="adm">É administrador?</label>
+                    <div class="verificador">
+                        <button class="bttnPadrao" id="verifiS"> Sim </button>
+                        <button class="bttnPadrao" id="verifiN"> Não </button>
+                    </div>
+                    <form action="">
+
+                        <label for="usuario">Usuário</label>
+                        <input type="text" class="campo lg" id="usuario" placeholder="Digite seu usuário" autocomplete="off">
+                        
+                        <label for="senha">Senha</label>
+                        <input type="password" class="campo lg" id="senha" placeholder="Digite seu senha" autocomplete="off">
+
+                        <input type="submit" class="bttnPadrao" name="Prosseguir" id="login" value="Prosseguir">
+                        <span class='retornoLg' id="retornoLg"></span>
+                    </form>
+                </div>
+            </section>
         </main>
 
         <script src="js/index.js"></script>
