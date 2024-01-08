@@ -90,19 +90,23 @@ section{
 
 @keyframes abreVerificador {
     from{
-        rigth: -200%;
+        left: -200%;
+        display: none;
     }
     to{
-        rigth:0;
+        left: 0;
+        display: initial;
     }
 }
 
 @keyframes fechaVerificador {
     from{
-        rigth: 0;
+        left: 0;
+        display: initial;
     }
     to{
-        rigth:-200%;
+        left: -200%;
+        display: none;
     }
 }
 

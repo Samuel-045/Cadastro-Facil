@@ -270,13 +270,13 @@ campos.forEach( campo=> {
 });
 fundoEsc()
 
-var login = document.getElementById('login')
+const login = document.querySelector('section')
 var bttnS = document.getElementById('verifiS')
 var bttnN = document.getElementById('verifiN')
 function verificador(){
     login.style.animationDuration = '1.2s'
     login.style.animationName = 'abreVerificador'
-    login.style.right = '0'
+    login.style.left = '0'
 }
 verificador()
 
@@ -290,9 +290,11 @@ bttnS.addEventListener('click', event => {
 })
 
 bttnN.addEventListener('click' , event => {
-    login.style.animationDuration = '1.2s'
-    login.style.animationName = "fecharVerificador"
-    login.style.display = 'none'
+    event.preventDefault()
+    login.style.animationDuration = '0.6s'
+    login.style.animationName = 'fechaVerificador'
+    login.style.left='-200%'
+    
     fundoClr()
     estd.disabled = false
     opcoes.disabled = false
@@ -305,9 +307,9 @@ bttnN.addEventListener('click' , event => {
 document.getElementById("confirmLogin").addEventListener('click',event => {
     event.preventDefault()
     if(camposLogin[0].value=='usuario' && camposLogin[1].value=='1023'){
-        login.style.animationDuration = '1.2s'
-        login.style.animationName = "fecharVerificador"
-        login.style.display = 'none'
+        login.style.animationDuration = '0.6s'
+        login.style.animationName = "fechaVerificador"
+        login.style.left ='-200%'
         fundoClr()
         estd.disabled = false
         opcoes.disabled = false
@@ -317,6 +319,7 @@ document.getElementById("confirmLogin").addEventListener('click',event => {
         endereco.disabled=true
         document.getElementById("PagTabela").style.display = 'initial'
         document.getElementById('retornoLg').innerHTML = ''
+        
     }else{
         document.getElementById('retornoLg').innerHTML = '<p> Administrador não cadastrado </p>'
     }
