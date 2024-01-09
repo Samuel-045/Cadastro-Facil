@@ -21,8 +21,10 @@
 
 - `Funcionalidade 1` : Design responsivo usando o conceito mobile first.
 - `Funcionalidade 2` : Pop-up de ações que é usado em telas menores.
-- `Funcionalidade 3` : Validação dos formulários com JS.
-- `Funcionalidade 4` : Utilização da API ViaCEP.
+- `Funcionalidade 3` : Pop-up de validação de usuário (este pop-up é utilizado em todas as telas).
+- `Funcionalidade 4` : Validação dos formulários com JS.
+- `Funcionalidade 5` : Utilização da API ViaCEP.
+- `Funcionalidade 6` : CRUD feito com localStorage.
 
 <h2>Tecnologias e linguagens usadas</h2>
 <p align="left">
