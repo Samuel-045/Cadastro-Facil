@@ -34,8 +34,18 @@ async function cadastrar() {
     let condSobre = Rxnome.test(sobrenome)
     let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o tipo de cliente
 
-    const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
+    const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
     let condData = Rxdata.test(dataNasc)
+
+    if(condData){ //se a data digitada estiver no formato correto, a verificação de idade é realizada abaixo
+        let dataAtual = dataFormatada()
+        let datainput = dataFormatada_Inp(dataNasc)      
+        
+        let difInMls = new Date(dataAtual) - new Date(datainput)
+        let tempDia = 1000 * 60 * 60 * 24 //tempo existente em 1 dia
+        var difInDays = difInMls / tempDia 
+        //a diferença em dias deve ser no mínimo de 6.574 dias (contando com os dias bisextos)
+    }
 
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
@@ -43,7 +53,7 @@ async function cadastrar() {
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
 
-    if(!condNome||!condSobre||!condData||!condCep||!condNum||!condCliente){
+    if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -61,7 +71,6 @@ async function cadastrar() {
                 Obestado:tpestado
             }
             
-            
             const vetor = respGet()
             vetor.push(obj)
             respSet(vetor)
@@ -69,6 +78,14 @@ async function cadastrar() {
             
         }
     }
+}
+function dataFormatada(){//puxa a data atual e 'formata'
+    let data = new Date()
+    return `${data.getFullYear()}-${(data.getMonth())+1}-${data.getDate()}`
+}
+function dataFormatada_Inp(data){//puxa a data inserida no input e formata para inserir no Date
+    var [ano,mes,dia]= data.split('-').map(Number)
+    return `${ano}-${mes}-${dia}`
 }
 
 async function buscaCep(cep){
@@ -127,8 +144,18 @@ async function atualizar(index){
     let condSobre = Rxnome.test(sobrenome)
     let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o estado de cliente
 
-    const Rxdata = /(\d{4})(-)(\d{2})(-)(\d{2})/
+    const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
     let condData = Rxdata.test(dataNasc)
+
+    if(condData){ //se a data digitada estiver no formato correto, a verificação de idade é realizada abaixo
+        let dataAtual = dataFormatada()
+        let datainput = dataFormatada_Inp(dataNasc)      
+        
+        let difInMls = new Date(dataAtual) - new Date(datainput)
+        let tempDia = 1000 * 60 * 60 * 24 //tempo existente em 1 dia
+        var difInDays = difInMls / tempDia 
+        //a diferença em dias deve ser no mínimo de 6.574 dias (contando com os dias bisextos)
+    }
 
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
@@ -136,7 +163,7 @@ async function atualizar(index){
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
     
-    if(!condNome||!condSobre||!condData||!condCep||!condNum||!condCliente){
+    if(!condNome||!condSobre||!condData||difInDays<6574||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
@@ -152,13 +179,13 @@ async function atualizar(index){
                 Obnumero : numero,
                 Obestado : tpestado
             }
-        
+            
             edit[index] = objNovo
             respSet(edit)
             limparCampos()
             document.getElementById("cadastrar").disabled = false
             document.getElementById("atualizar").disabled = true
-
+            
         }
     }    
 }
@@ -294,7 +321,6 @@ bttnN.addEventListener('click' , event => {
     login.style.animationDuration = '0.6s'
     login.style.animationName = 'fechaVerificador'
     login.style.left='-200%'
-    
     fundoClr()
     estd.disabled = false
     opcoes.disabled = false
