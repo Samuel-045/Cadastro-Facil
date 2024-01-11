@@ -66,7 +66,7 @@
 <br>
 
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/733d2900-5dcf-4c1a-8255-2cdfce084e69' width='1000px'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/cbdadc2d-6887-4f66-a137-a36c2c468582' width='1000px'>
 
   
   >Tela de dados versão desktop.
