@@ -78,7 +78,7 @@ span{
 input,
 select{
     background:#DBDBDB;
-    border: none;
+    border: 1px solid transparent;
     padding: 4px 6px;
     border-radius: 5px ;
 }

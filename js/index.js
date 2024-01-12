@@ -12,6 +12,10 @@ function limparCampos(){
     document.getElementById("cadastrar").disabled = false
     document .getElementById("atualizar").disabled = true
     estilButton()
+    campos.forEach(campo => {
+        campo.style.border = 'transparent'
+    })
+    document.getElementById('clientes').style.border = 'transparent'
 }
 
 document.getElementById('limpar').addEventListener('click', event => {
@@ -55,6 +59,7 @@ async function cadastrar() {
 
     if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<p>Preencha os campos corretamente!!</p>'
+        campoEspfc(condNome,condSobre,condData,difInDays,condCep,condNum,condCliente)
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
         var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
@@ -75,6 +80,7 @@ async function cadastrar() {
             vetor.push(obj)
             respSet(vetor)
             limparCampos()
+            campoEspfc(condNome,condSobre,condData,difInDays,condCep,condNum,condCliente)
             
         }
     }
@@ -86,6 +92,51 @@ function dataFormatada(){//puxa a data atual e 'formata'
 function dataFormatada_Inp(data){//puxa a data inserida no input e formata para inserir no Date
     var [ano,mes,dia]= data.split('-').map(Number)
     return `${ano}-${mes}-${dia}`
+}
+
+//função anônima que retorna em qual campo está a informação incorreta
+const campoEspfc = (condNome,condSobre,condData,difInDays,condCep,condNum,condCliente) => {
+    if(condNome==false){
+        document.getElementById('nome').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('nome').style.border = 'solid 1px transparent'
+    }
+
+    if(condSobre==false){
+        document.getElementById('sobrenome').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('sobrenome').style.border = 'solid 1px transparent'
+    }
+
+    if(condData==false){
+        document.getElementById('dataNasc').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('dataNasc').style.border = 'solid 1px transparent'
+    }
+
+    if(difInDays<6754 || difInDays == undefined){
+        document.getElementById('dataNasc').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('dataNasc').style.border = 'solid 1px transparent'
+    }
+
+    if(condCep==false){
+        document.getElementById('cep').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('cep').style.border = 'solid 1px transparent'
+    }
+
+    if(condNum==false){
+        document.getElementById('numero').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('numero').style.border = 'solid 1px transparent'
+    }
+
+    if(condCliente==false){
+        document.getElementById('clientes').style.border = 'solid 1px red'
+    }else{
+        document.getElementById('clientes').style.border = 'solid 1px transparent'
+    }
 }
 
 async function buscaCep(cep){
@@ -165,6 +216,7 @@ async function atualizar(index){
     
     if(!condNome||!condSobre||!condData||difInDays<6574||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
+        campoEspfc(condNome,condSobre,condData,difInDays,condCep,condNum,condCliente)
     }else{
         var cepEdit = cep.replace("-","")//tiro o traço para buscar na API
         var retorno = await buscaCep(cepEdit)//irá retornar se o cep é válido
@@ -185,7 +237,7 @@ async function atualizar(index){
             limparCampos()
             document.getElementById("cadastrar").disabled = false
             document.getElementById("atualizar").disabled = true
-            
+            campoEspfc(condNome,condSobre,condData,difInDays,condCep,condNum,condCliente)
         }
     }    
 }
