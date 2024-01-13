@@ -31,12 +31,11 @@ async function cadastrar() {
     let dataNasc = document.getElementById('dataNasc').value.trim()
     let cep = document.getElementById('cep').value.trim()
     let numero = document.getElementById('numero').value.trim()
-    let tpestado = document.getElementById('clientes').value.trim()
+    let estado = document.getElementById('clientes').value.trim()
 
-    const Rxnome = /[\w]/
+    const Rxnome = /^[A-Za-z]{1,}$/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o tipo de cliente
 
     const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
     let condData = Rxdata.test(dataNasc)
@@ -57,6 +56,9 @@ async function cadastrar() {
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
 
+    const RxEstd = /^[A-Z]{2}[-]?[\sA-Za-z{ÃãàÀÁáÇçèÈÉé}]{1,}$/
+    let condCliente = RxEstd.test(estado)
+
     if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<p>Preencha os campos corretamente!!</p>'
         campoEspfc(condNome,condSobre,condData,difInDays,condCep,condNum,condCliente)
@@ -73,7 +75,7 @@ async function cadastrar() {
                 Obcep: cep,
                 Obendereco: retorno,
                 Obnumero: numero,
-                Obestado:tpestado
+                Obestado:estado
             }
             
             const vetor = respGet()
@@ -188,12 +190,11 @@ async function atualizar(index){
     let dataNasc = document.getElementById('dataNasc').value 
     let cep = document.getElementById('cep').value 
     let numero = document.getElementById('numero').value 
-    let tpestado = document.getElementById('clientes').value
+    let estado = document.getElementById('clientes').value
 
-    const Rxnome = /[\w]/
+    const Rxnome = /^[A-Za-z]{1,}$/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
-    let condCliente = Rxnome.test(tpestado)//reutilizando o regex do nome para o estado de cliente
 
     const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
     let condData = Rxdata.test(dataNasc)
@@ -213,6 +214,9 @@ async function atualizar(index){
 
     const Rxnum = /\d{1,5}/
     let condNum = Rxnum.test(numero)
+
+    const RxEstd = /^[A-Z]{2}[-]{1}[\sA-Za-z{ÃãàÀÁáÇçèÈÉé}]{1,}$/
+    let condCliente = RxEstd.test(estado)
     
     if(!condNome||!condSobre||!condData||difInDays<6574||!condCep||!condNum||!condCliente){
         document.getElementById("retorno").innerHTML = '<br><br> <p>Preencha os campos corretamente!!</p>'
@@ -229,7 +233,7 @@ async function atualizar(index){
                 Obcep : cep,
                 Obendereco : retorno,
                 Obnumero : numero,
-                Obestado : tpestado
+                Obestado : estado
             }
             
             edit[index] = objNovo
