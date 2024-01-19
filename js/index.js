@@ -278,20 +278,20 @@ if(window.location.href.split("?")[1]== 'alt'){
 }
 estilButton()
 
-// códigos para a tela mobile -> ação do pop-up de opções 
-const pop = document.getElementById("popup")
+//criação de variáveis para escurecer a tela
+const opcoes = document.getElementById("opcoes")
 const body = document.querySelector('*')
 const header = document.querySelector('header')
 const caixaSup = document.querySelector('.caixaSup')
 const inputs = document.querySelectorAll("input[class*='campo']")
 const select = document.querySelector('select')
-var condPop = false
 
 function fundoEsc(){
     //linhas para deixar o fundo escuro quando algum pop-up ativar
     body.style.background = "rgba(0,0,0,0.5)"
     header.style.background = "rgba(0,0,0,0.5)"
     caixaSup.style.background = "rgba(0,0,0,0.4)"
+    opcoes.style.background = "rgba(78,78,78,1)"
     inputs.forEach( input => {
         input.style.background = "rgba(0,0,0,0.2)"
     });
@@ -302,51 +302,16 @@ function fundoClr(){
     body.style.background = "#FFF"
     header.style.background = "#A8A8A8"
     caixaSup.style.background = "#A8A8A8"
+    opcoes.style.background = "#A8A8A8"
     inputs.forEach( input => {
         input.style.background = "#dbdbdb"
     });
     select.style.background = "#dbdbdb"
 }
-const opcoes = document.getElementById("opcoes")
-opcoes.addEventListener('click', event => {
-    event.preventDefault()
-    pop.style.animationDuration = '0.6s'
-    pop.style.animationName = 'abreOpcoes' // ativação da animação criada no css
-    fundoEsc()
-    pop.style.top = '30%'
-    condPop=true
-})
-
-function fecharOpc(){
-    pop.style.animationDuration = '1.2s'
-    pop.style.animationName = 'fechaOpcoes' // ativação da animação criada no css
-    fundoClr()
-    pop.style.top = '-200%'
-}
-
-document.getElementById("voltar").addEventListener('click', event => {
-    event.preventDefault()
-    fecharOpc()
-})
-
-header.addEventListener('click', event => {
-    if(condPop){
-        fecharOpc()
-        condPop=false
-    }
-})
-
-caixaSup.addEventListener('click', event => {
-    if(condPop){
-        fecharOpc()
-        condPop=false
-    }
-})
 
 // códigos para a verificação de usuário -> ação do pop-up de verificação
 const estd = document.getElementById("clientes")
 estd.disabled = true
-opcoes.disabled = true
 var campos = document.querySelectorAll("input")
 campos.forEach( campo=> {
     campo.disabled = true
@@ -379,7 +344,6 @@ bttnN.addEventListener('click' , event => {
     login.style.left='-200%'
     fundoClr()
     estd.disabled = false
-    opcoes.disabled = false
     campos.forEach( campo=> {
         campo.disabled = false  
     });
@@ -394,7 +358,6 @@ document.getElementById("confirmLogin").addEventListener('click',event => {
         login.style.left ='-200%'
         fundoClr()
         estd.disabled = false
-        opcoes.disabled = false
         campos.forEach( campo=> {
             campo.disabled = false  
         });
