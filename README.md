@@ -25,7 +25,7 @@
   >Página inicial versão desktop.
 
   <br><br>
-  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/34da6246-6688-4546-95c2-7b1f14ac6356" height='800px'>
+  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/704c6064-c9c1-4f4a-97f7-1c615b130ec2" height='800px'>
 
 
   >Página inicial na versão mobile.
@@ -44,26 +44,14 @@
   >Página index versão desktop sem nenhum pop-up ativado.
   
   <br><br>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/f78d6213-2ee6-4947-8b5b-0fb71b9c6d44' height='800px'>
-  
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/0fb87173-087c-49fa-81bd-1989de54cc94' height='800px'>
+
   
   >Página index versão mobile sem nenhum pop-up ativado.
 
   <br>
 </div>
 
-<div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/9cb2dc60-3517-484b-89ad-fef8edd97927' height='800px'>
-
-  
-  >Pop-up de ações ativado.
-
-  <br>
-  <p align='left'>
-    *Este pop-up é uxclusivo da versão mobile.
-  </p>
-</div>
-<br>
 
 <div align='center'>
   <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/cbdadc2d-6887-4f66-a137-a36c2c468582' width='1000px'>
@@ -100,11 +88,10 @@
 <h2>🔨 Funcionalidades</h2>
 
 - `Funcionalidade 1` : Design responsivo usando o conceito mobile first.
-- `Funcionalidade 2` : Pop-up de ações que é usado em telas menores.
-- `Funcionalidade 3` : Pop-up de validação de usuário (este pop-up é utilizado em todas as telas).
-- `Funcionalidade 4` : Validação dos formulários com JS.
-- `Funcionalidade 5` : Utilização da API ViaCEP.
-- `Funcionalidade 6` : CRUD feito com localStorage.
+- `Funcionalidade 2` : Pop-up de validação de usuário.
+- `Funcionalidade 3` : Validação dos formulários com JS.
+- `Funcionalidade 4` : Utilização da API ViaCEP.
+- `Funcionalidade 5` : CRUD feito com localStorage.
 
 
 <h2>Tecnologias e linguagens usadas</h2>
