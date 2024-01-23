@@ -33,10 +33,10 @@ async function cadastrar() {
     let numero = document.getElementById('numero').value.trim()
     let estado = document.getElementById('clientes').value.trim()
 
-    const Rxnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,})[\s]?([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,}?)[\s]?$/
+    const Rxnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,})[\s]?([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,}?)[\s]?$/
     let condNome = Rxnome.test(nome)
 
-    const Rxsbnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,})[\s]?$/
+    const Rxsbnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,})[\s]?$/
     let condSobre = Rxsbnome.test(sobrenome)
 
     const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
@@ -58,7 +58,7 @@ async function cadastrar() {
     const Rxnum = /^\d{1,5}$/
     let condNum = Rxnum.test(numero)
 
-    const RxEstd = /^[A-Z]{2}[-]?[\s]{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéí}]{1,}$/
+    const RxEstd = /^[A-Z]{2}[-]{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,}\s{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,}$/
     let condCliente = RxEstd.test(estado)
 
     if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
@@ -194,10 +194,10 @@ async function atualizar(index){
     let numero = document.getElementById('numero').value 
     let estado = document.getElementById('clientes').value
 
-    const Rxnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,})[\s]?([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,}?)[\s]?$/
+    const Rxnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,})[\s]?([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,}?)[\s]?$/
     let condNome = Rxnome.test(nome)
     
-    const Rxsbnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒò}]{1,})[\s]?$/
+    const Rxsbnome = /^([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,})[\s]?$/
     let condSobre = Rxsbnome.test(sobrenome)
 
     const Rxdata = /^(\d{4})(-)(\d{2})(-)(\d{2})$/
@@ -219,7 +219,7 @@ async function atualizar(index){
     const Rxnum = /^\d{1,5}$/
     let condNum = Rxnum.test(numero)
 
-    const RxEstd = /^[A-Z]{2}[-]{1}[\sA-Za-z{ÃãàÀÁáÇçèÈÉéÍí}]{1,}$/
+    const RxEstd = /^[A-Z]{2}[-]{1}[\sA-Za-z{ÃãàÀÁáÇçèÈÉéÍíÜüÓóÒòôÔ}]{1,}$/
     let condCliente = RxEstd.test(estado)
     
     if(!condNome||!condSobre||!condData||difInDays<6574||!condCep||!condNum||!condCliente){
