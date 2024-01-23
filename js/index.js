@@ -55,10 +55,10 @@ async function cadastrar() {
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
 
-    const Rxnum = /\d{1,5}/
+    const Rxnum = /^\d{1,5}$/
     let condNum = Rxnum.test(numero)
 
-    const RxEstd = /^[A-Z]{2}[-]?[\sA-Za-z{ÃãàÀÁáÇçèÈÉéí}]{1,}$/
+    const RxEstd = /^[A-Z]{2}[-]?[\s]{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéí}]{1,}$/
     let condCliente = RxEstd.test(estado)
 
     if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
@@ -216,7 +216,7 @@ async function atualizar(index){
     const Rxcep = /^(\d{5})[-]{1}?(\d{3})$/
     let condCep = Rxcep.test(cep)
 
-    const Rxnum = /\d{1,5}/
+    const Rxnum = /^\d{1,5}$/
     let condNum = Rxnum.test(numero)
 
     const RxEstd = /^[A-Z]{2}[-]{1}[\sA-Za-z{ÃãàÀÁáÇçèÈÉéÍí}]{1,}$/
