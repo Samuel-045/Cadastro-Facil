@@ -33,7 +33,7 @@ async function cadastrar() {
     let numero = document.getElementById('numero').value.trim()
     let estado = document.getElementById('clientes').value.trim()
 
-    const Rxnome = /^[A-Za-z]{1,}$/
+    const Rxnome = /^([A-Za-z]{1,})[\s]?([A-Za-z]{1,}?)$/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
 
@@ -192,7 +192,7 @@ async function atualizar(index){
     let numero = document.getElementById('numero').value 
     let estado = document.getElementById('clientes').value
 
-    const Rxnome = /^[A-Za-z]{1,}$/
+    const Rxnome = /^([A-Za-z]{1,})[\s]?([A-Za-z]{1,}?)$/
     let condNome = Rxnome.test(nome)
     let condSobre = Rxnome.test(sobrenome)
 
