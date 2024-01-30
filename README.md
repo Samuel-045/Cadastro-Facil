@@ -54,12 +54,12 @@
 
 
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/cbdadc2d-6887-4f66-a137-a36c2c468582' width='1000px'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/3fc3694f-f74d-42f8-ade8-f0794b395358' width='1000px'>
 
   
   >Tela de dados versão desktop.
 
-  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/27f9c37d-6bc1-4689-8482-e400d96a73d7' height='800px'>
+  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/f54f4acb-1f23-4ac8-ba32-29c1847dbd29' height='800px'>
 
 
   >Tela de dados versão mobile.
