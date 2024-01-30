@@ -6,9 +6,10 @@ const desfazerLinha = () => {
 }
 const criarLinha = (client,index) => {
     const estrutura = document.createElement('tr')
+    const data = new Date (client.Obdatanascimento)
     estrutura.innerHTML=`
         <td class="centro">${client.Obnome}</td>
-        <td class="centro">${client.Obdatanascimento}</td>
+        <td class="centro">${data.toLocaleDateString()}</td>
         <td class="centro">${client.Obestado}</td>
         <td class="centro">${client.Obendereco}</td>
         <td class="imgs" id="imgs">
