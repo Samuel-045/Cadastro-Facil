@@ -59,7 +59,7 @@
   
   >Tela de dados versão desktop.
 
-  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/721ab05c-20f8-4ba6-89ce-ae6954784c01' height='800px'>
+  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/27f9c37d-6bc1-4689-8482-e400d96a73d7' height='800px'>
 
 
   >Tela de dados versão mobile.
