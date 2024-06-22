@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+body{
+    color:white;
+}
+
 header{
     font-family: 'Inria Sans';
     background: #A8A8A8;
@@ -112,21 +116,23 @@ section{
 
 @media (min-width:280px){
     .caixaSup{
+        letter-spacing: 1.5px;
         width: 90%;
         padding: 14px;
         box-sizing: border-box;
         margin: 5% auto 80px auto;
-        background: #A8A8A8;
         box-shadow: 0px 12px 10px 10px rgba(37, 36, 36, 0.60);
+        border-radius: 5px;
     }
 
     section .login{
+        letter-spacing: 1.5px;
         padding: 8px;
         width: 80%;
         margin: 0 10%;
         border-radius: 20px;
         border: 1px solid #000;
-        background: #A8A8A8;
+        background: rgba(138,174,224,1.0);
         display: flex;
         flex-direction: column;
     }

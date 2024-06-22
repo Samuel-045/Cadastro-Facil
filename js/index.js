@@ -264,7 +264,7 @@ function estilButton(){//função para estilizar os botões, diferenciando os bo
     
     buttons.forEach(botao => {
         if(!botao.disabled){        
-            botao.style.background = 'black'
+            botao.style.background = "rgba(19,54,106,1.0)"
             botao.style.color = 'white'
             botao.style.transition = '0.5s'
         }else{
@@ -290,12 +290,13 @@ const caixaSup = document.querySelector('.caixaSup')
 const inputs = document.querySelectorAll("input[class*='campo']")
 const select = document.querySelector('select')
 
+
 function fundoEsc(){
     //linhas para deixar o fundo escuro quando algum pop-up ativar
-    body.style.background = "rgba(0,0,0,0.5)"
-    header.style.background = "rgba(0,0,0,0.5)"
-    caixaSup.style.background = "rgba(0,0,0,0.4)"
-    opcoes.style.background = "rgba(78,78,78,1)"
+    body.style.background = "rgba(2,43,66,1.0)"
+    header.style.background = "rgba(81,113,157,1.0)"
+    caixaSup.style.background = "rgba(0,100,148,0.0)"
+    opcoes.style.background = "rgba(81,113,157,1.0)"
     inputs.forEach( input => {
         input.style.background = "rgba(0,0,0,0.2)"
     });
@@ -303,10 +304,10 @@ function fundoEsc(){
 }
 function fundoClr(){
     //linhas para deixar o fundo claro quando o pop-up descer
-    body.style.background = "#FFF"
-    header.style.background = "#A8A8A8"
-    caixaSup.style.background = "#A8A8A8"
-    opcoes.style.background = "#A8A8A8"
+    body.style.background = "rgba(2,43,66,1)"
+    header.style.background = "rgba(138,174,224,1.0)"
+    caixaSup.style.background = "rgba(0,100,148,0.4)"
+    opcoes.style.background = "rgba(138,174,224,1.0)"
     inputs.forEach( input => {
         input.style.background = "#dbdbdb"
     });
@@ -333,12 +334,13 @@ function verificador(){
 verificador()
 
 var camposLogin = document.querySelectorAll(".login input[class*='lg']")
+camposLogin[2].style.background = 'rgba(19,54,106,0.5)'//deixa o último botão do pop-up inicialmente mais claro
 bttnS.addEventListener('click', event => {
     camposLogin.forEach(campo => {
         campo.disabled = false
         campo.style.background = "#dbdbdb"
     })
-    camposLogin[2].style.background = 'black'
+    camposLogin[2].style.background = 'rgba(19,54,106,1.0)' 
 })
 
 bttnN.addEventListener('click' , event => {
