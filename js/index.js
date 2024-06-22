@@ -58,7 +58,7 @@ async function cadastrar() {
     const Rxnum = /^\d{1,5}$/
     let condNum = Rxnum.test(numero)
 
-    const RxEstd = /^[A-Z]{2}[-]{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,}\s{1}[A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,}$/
+    const RxEstd = /^([A-Z]{2})([-]{1})([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,})(\s{1})([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,})((\s)?)(([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,})?)((\s)?)(([A-Za-z{ÃãàÀÁáÇçèÈÉéÍíÚúÙùÜüÓóÒòôÔ}]{1,})?)$/
     let condCliente = RxEstd.test(estado)
 
     if(!condNome||!condSobre||!condData||difInDays<6754||!condCep||!condNum||!condCliente){
