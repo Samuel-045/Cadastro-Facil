@@ -3,6 +3,8 @@ const endereco = document.getElementById("endereco")
 endereco.disabled = true
 
 function limparCampos(){
+    history.pushState(null, null, "index.html"); //além de limpar os campos, a url também irá mudar, evitando puxar novamente as informações do cadastro
+
     campos = document.querySelectorAll('.campo')
     campos.forEach(campos => campos.value='')
     
