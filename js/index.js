@@ -356,6 +356,7 @@ bttnN.addEventListener('click' , event => {
         campo.disabled = false  
     });
     endereco.disabled=true
+    document.querySelector('form .opcoes .acoes').removeChild(botaoTelaDados)
 })
 
 document.getElementById("confirmLogin").addEventListener('click',event => {
@@ -370,10 +371,14 @@ document.getElementById("confirmLogin").addEventListener('click',event => {
             campo.disabled = false  
         });
         endereco.disabled=true
-        document.getElementById("PagTabela").style.display = 'initial'
+        document .getElementById("atualizar").disabled = true
+        document.querySelector('form .opcoes .acoes').appendChild(botaoTelaDados)
         document.getElementById('retornoLg').innerHTML = ''
-        
+        estilButton()
     }else{
         document.getElementById('retornoLg').innerHTML = '<p> Administrador não cadastrado </p>'
     }
 })
+
+let botaoTelaDados = document.createElement('div')
+botaoTelaDados.innerHTML = `<a href="tabela.html" class="bttnPadrao" id="PagTabela">Dados</a>`
