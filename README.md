@@ -12,7 +12,7 @@
   A realização do cadastro necessita de 7 dados, e a 4 destes serão exibidos na tela de dados, com a possibilidade de exclusão e alteração dos dados inseridos.<br>
   O endereço do cliente é Enviado de forma automática, pois o CEP inserido é usado para pegar o endereço pela API ViaCEP. A validade do CEP é verificada, e quando é inválida
   o cadastro não é realizado, retornando que o endereço não foi encontrado.<br>
-  O cadastro é realizado através do CRUD. O software possui todas as ações, contudo a ação de _READ_ é excluisiva dos administradores, que possuem seu cadastro já pré-realizado.
+  O cadastro é realizado através do CRUD. O software possui todas as ações, contudo as açÕes de _READ_ e _UPDATE_ é excluisiva dos administradores, que possuem seu cadastro já pré-realizado.
 
 
   O software foi desenvolvido com a metodologia mobile first, e está toalmente responsivo.
