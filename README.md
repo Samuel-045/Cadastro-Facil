@@ -1,7 +1,7 @@
 # Cadastro Fácil
 <p align='center'>
   <img src="https://img.shields.io/badge/STATUS-FINALIZADO-blue">
-  <img src="https://img.shields.io/github/last-commit/Samuel-045/cadastro-Facil/main?color=blue">
+  <img src="https://img.shields.io/github/last-commit/Samuel-045/Cadastro-Facil/main?color=blue">
 </p>
 
 <h2>Descrição</h2>
@@ -100,6 +100,7 @@
   <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
   <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+  <img src="https://img.shields.io/badge/Figma-black?style=for-the-badge&logo=Figma&logoColor=white">
 </p>
 
 
