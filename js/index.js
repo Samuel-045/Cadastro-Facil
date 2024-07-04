@@ -356,7 +356,6 @@ bttnN.addEventListener('click' , event => {
         campo.disabled = false  
     });
     endereco.disabled=true
-    document.querySelector('form .opcoes .acoes').removeChild(botaoTelaDados)
 })
 
 document.getElementById("confirmLogin").addEventListener('click',event => {
@@ -371,7 +370,13 @@ document.getElementById("confirmLogin").addEventListener('click',event => {
             campo.disabled = false  
         });
         endereco.disabled=true
-        document .getElementById("atualizar").disabled = true
+        if(window.location.href.split("?")[2] !== undefined){
+            document.getElementById("atualizar").disabled = false
+            document.getElementById("cadastrar").disabled = true
+        }else{
+            document.getElementById("atualizar").disabled = true
+            document.getElementById("cadastrar").disabled = false
+        }
         document.querySelector('form .opcoes .acoes').appendChild(botaoTelaDados)
         document.getElementById('retornoLg').innerHTML = ''
         estilButton()
