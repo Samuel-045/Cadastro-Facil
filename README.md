@@ -16,6 +16,8 @@
 
 
   O software foi desenvolvido com a metodologia mobile first, e está toalmente responsivo.
+
+  <a href="https://www.figma.com/design/6ZXBLsG9tTjHfKepSomwTY/CAD_CLIENTE?node-id=0-1&t=ZN89bM6wECbi3mz7-0">Link do projeto no Figma</a>
 </p>
 <h2>:arrow_forward: Software em ação</h2>
 <div align='center'>
@@ -25,7 +27,7 @@
   >Página inicial versão desktop.
 
   <br><br>
-  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/704c6064-c9c1-4f4a-97f7-1c615b130ec2" height='800px'>
+  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/0fb47fb4-2d5b-41c6-9f0c-1aee9e6b49d1" height='800px'>
 
 
   >Página inicial na versão mobile.
@@ -33,7 +35,7 @@
   <br>
   <p align='left'>
     *Nas duas imagens acima, o pop-up de verificação está ativado.<br>
-    A partir deste pop-up a opção de ver os dados irá aparecer ou continuar invisível (A possibilidade de ver os dados é restrita aos administradores).
+    A partir deste pop-up o botão da tela de dados irá ou não aparecer (A possibilidade de ver os dados é restrita aos administradores).
   </p>
 </div>
 <br>
@@ -44,22 +46,41 @@
   >Página index versão desktop sem nenhum pop-up ativado.
   
   <br><br>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/0fb87173-087c-49fa-81bd-1989de54cc94' height='800px'>
-
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/907d36fb-f937-4a7d-bed5-bcf747ad9240' height='800px'>
   
   >Página index versão mobile sem nenhum pop-up ativado.
 
   <br>
+  <p align='left'>
+    *Estas telas são de usuários comuns.
+  </p>
 </div>
-
+<br>
 
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/3fc3694f-f74d-42f8-ade8-f0794b395358' width='1000px'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/944913c1-b637-47b2-b8b9-9e26195161e4' width='1000px'>
+  
 
+  >Página index versão desktop sem nenhum pop-up ativado.
+  
+  <br><br>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/8d6f77e7-c7ee-4759-a6d7-ff572c781ddb' height='800px'>
+  
+  >Página index versão mobile sem nenhum pop-up ativado.
+
+  <br>
+  <p align='left'>
+    *Estas telas são de usuários com login de adminisrador.
+  </p>
+</div>
+<br>
+<div align='center'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/3fc3694f-f74d-42f8-ade8-f0794b395358' width='1000px'>
+  <br><br>
   
   >Tela de dados versão desktop.
 
-  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/f54f4acb-1f23-4ac8-ba32-29c1847dbd29' height='800px'>
+  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/09832a91-7067-4f72-9037-38048d53d146' height='800px'><br>
 
 
   >Tela de dados versão mobile.
@@ -72,17 +93,21 @@
 <br>
 <div align='center'>
   <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/e9956e94-ef24-4057-8015-c5d982efb223' width='1000px'>
+  <br><br>
+
 
   >Tela de elemento deletado versão desktop.
 
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/957cfe75-dc59-49d3-b10e-d956d6c30e9c' height='800px'>
-
+  <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/c48784d4-dcff-4556-846e-3d2c68223f48' height='800px'>
+  <br><br>
 
   >Tela de elemento deletado versão mobile.
 
+  <br>
   <p align='left'>
     *Estas telas tem acesso a partir da tela de dados, portanto seu acesso é exclusivo para administradores.
   </p>
+  <br>
 </div>
 
 <h2>🔨 Funcionalidades</h2>
