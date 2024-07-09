@@ -94,7 +94,7 @@
   >Tela de elemento deletado versão desktop.
 
   <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/c48784d4-dcff-4556-846e-3d2c68223f48' height='800px'>
-  <br><br>
+  <br>
 
   >Tela de elemento deletado versão mobile.
 
