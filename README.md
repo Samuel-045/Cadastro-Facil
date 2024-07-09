@@ -21,14 +21,12 @@
 </p>
 <h2>:arrow_forward: Software em ação</h2>
 <div align='center'>
-  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/c66ce5b0-cc9b-4043-a6b1-a2db893bb4c4" width='1000px'>
-  
+  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/b511460f-7d7d-4d89-970c-8b314a6c9dc2" width='1000px'><br><br>
   
   >Página inicial versão desktop.
 
-  <br><br>
-  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/0fb47fb4-2d5b-41c6-9f0c-1aee9e6b49d1" height='800px'>
-
+  <br>
+  <img src="https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/0fb47fb4-2d5b-41c6-9f0c-1aee9e6b49d1" height='800px'><br><br>
 
   >Página inicial na versão mobile.
 
@@ -40,48 +38,45 @@
 </div>
 <br>
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/944913c1-b637-47b2-b8b9-9e26195161e4' width='1000px'>
-  
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/b9f6c7fb-ecac-4a15-af37-31eb8f15c791' width='1000px'><br><br>
 
   >Página index versão desktop sem nenhum pop-up ativado.
   
-  <br><br>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/907d36fb-f937-4a7d-bed5-bcf747ad9240' height='800px'>
+  <br>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/907d36fb-f937-4a7d-bed5-bcf747ad9240' height='800px'><br><br>
   
   >Página index versão mobile sem nenhum pop-up ativado.
 
   <br>
   <p align='left'>
-    *Estas telas são de usuários comuns.
+    *Estas telas acima são de usuários comuns.
   </p>
 </div>
 <br>
 
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/944913c1-b637-47b2-b8b9-9e26195161e4' width='1000px'>
-  
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/d351e4e7-6da4-4a50-9010-c23c26c36a34' width='1000px'><br><br>
 
   >Página index versão desktop sem nenhum pop-up ativado.
   
-  <br><br>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/8d6f77e7-c7ee-4759-a6d7-ff572c781ddb' height='800px'>
+  <br>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/8d6f77e7-c7ee-4759-a6d7-ff572c781ddb' height='800px'><br><br>
   
   >Página index versão mobile sem nenhum pop-up ativado.
 
   <br>
   <p align='left'>
-    *Estas telas são de usuários com login de adminisrador.
+    *Estas telas acima são de usuários com login de adminisrador.
   </p>
 </div>
 <br>
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/3fc3694f-f74d-42f8-ade8-f0794b395358' width='1000px'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/6b466682-8b84-461d-be5f-9df9666d14f2' width='1000px'>
   <br><br>
   
   >Tela de dados versão desktop.
 
   <br><img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/09832a91-7067-4f72-9037-38048d53d146' height='800px'><br>
-
 
   >Tela de dados versão mobile.
 
@@ -92,7 +87,7 @@
 </div>
 <br>
 <div align='center'>
-  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/e9956e94-ef24-4057-8015-c5d982efb223' width='1000px'>
+  <img src='https://github.com/Samuel-045/Cadastro-Facil/assets/95144250/3a624940-53b5-41f2-a9aa-3c1546356c86' width='1000px'>
   <br><br>
 
 
